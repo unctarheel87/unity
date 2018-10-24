@@ -11,7 +11,9 @@ import Nav from "./components/navbar"
 class App extends Component {
   render() {
     return (
-      <Nav />
+      <div>
+        <Nav />
+      </div>
     )
   }
 };

@@ -1,9 +1,7 @@
 import React from "react";
 import "./stockList.css";
 
-const StockList = () => (
+export default () => (
   <div className="stockList">
   </div>
 );
-
-export default StockList;

@@ -1,9 +1,7 @@
 import React from "react";
+import { Footer } from "react-materialize";
 import "./footer.css";
 
-const Footer = () => (
-  <div className="footer">
-  </div>
+export default () => (
+  <div></div>
 );
-
-export default Footer;

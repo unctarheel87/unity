@@ -1,9 +1,7 @@
 import React from "react";
 import "./searchForm.css";
 
-const SearchForm = () => (
+export default () => (
   <div className="searchForm">
   </div>
 );
-
-export default SearchForm;
