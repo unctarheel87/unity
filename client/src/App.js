@@ -1,28 +1,19 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+// import Backdrop from "./components/backdrop"
+// import Footer from "./components/footer"
+// import Jumbotron from "./components/jumbotron"
+import Nav from "./components/navbar"
+// import SearchForm from "./components/searchForm"
+// import StockItem from "./components/stockItem"
+// import StockList from "./components/stocklist"
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+      <Nav />
+    )
   }
-}
+};
 
 export default App;
