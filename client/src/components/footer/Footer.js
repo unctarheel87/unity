@@ -3,7 +3,7 @@ import { Footer } from "react-materialize";
 import "./footer.css";
 
 export default () => (
-  <div>
+  <div className="footer">
     <Footer copyrights="&copy 2018 Copyright Text"
       moreLinks={
         <a className="grey-text text-lighten-4 right" href="#!">More Links</a>
@@ -20,6 +20,6 @@ export default () => (
     >
         <h5 className="white-text">Footer Content</h5>
         <p className="grey-text text-lighten-4">footer content goes here.</p>
-    </Footer>;
+    </Footer>
   </div>
 );
