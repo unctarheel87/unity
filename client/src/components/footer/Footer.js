@@ -19,7 +19,7 @@ export default () => (
       className='example'
     >
         <h5 className="white-text">Footer Content</h5>
-        <p className="grey-text text-lighten-4">footer content</p>
+        <p className="grey-text text-lighten-4">footer content goes here.</p>
     </Footer>;
   </div>
 );
