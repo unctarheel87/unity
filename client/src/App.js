@@ -9,6 +9,11 @@ import StockItem from "./components/stockItem"
 // import StockList from "./components/stocklist"
 
 class App extends Component {
+  state = {
+    username: "john",
+    password: "super"
+  }
+
   render() {
     return (
       <div>
