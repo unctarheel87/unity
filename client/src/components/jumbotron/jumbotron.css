@@ -1,4 +1,8 @@
 .jumbotron{
   background-color: lightgray;
-  height: 40vh;
+  height: 60vh;
+}
+
+form {
+  background-color: white;
 }
