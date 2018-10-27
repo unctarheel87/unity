@@ -8,6 +8,7 @@ export default {
   register: (user) => {
     console.log(user)
     return axios.post('/register', user)
+  },
   stockSearch (ticker) {
     const API_KEY = 'NSUNV8LPVSSN0247'
     const url = 'https://www.alphavantage.co/query?' +

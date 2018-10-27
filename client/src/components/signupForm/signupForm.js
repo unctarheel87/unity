@@ -4,7 +4,10 @@ import API from '../../utils/API';
 import "./signupForm.css"
 
 export default class signupForm extends Component {
-  state = {}
+  state = {
+    username: '',
+    password: ''
+  }
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value,

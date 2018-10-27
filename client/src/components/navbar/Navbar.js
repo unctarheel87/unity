@@ -5,7 +5,10 @@ import "./navbar.css";
 
 // Need to add conditional...if user is logged in load dropdownB, if not, load A
 export default class NavBar extends Component {
-  state = {}
+  state = {
+    username: '',
+    password: ''
+  }
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value,
