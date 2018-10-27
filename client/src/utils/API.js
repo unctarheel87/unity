@@ -5,11 +5,9 @@ export default {
     console.log(user)
     return axios.post('/login', user)
   },
-<<<<<<< HEAD
   register: (user) => {
     console.log(user)
     return axios.post('/register', user)
-=======
   stockSearch (ticker) {
     const API_KEY = 'NSUNV8LPVSSN0247'
     const url = 'https://www.alphavantage.co/query?' +
@@ -18,6 +16,5 @@ export default {
             '&apikey=' + API_KEY +
             '&outputsize=full'
     return axios.get(url)
->>>>>>> 99ae243f80b97fe79fed4f8aeea7855b6696bed3
   }
 };
