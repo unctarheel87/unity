@@ -12,7 +12,7 @@ export default class signupForm extends Component {
   };
   handleSubmit = event => {
     event.preventDefault();
-    API.auth({
+    API.register({
       username: this.state.username,
       password: this.state.password
     })
