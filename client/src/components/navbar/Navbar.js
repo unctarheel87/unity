@@ -1,15 +1,7 @@
 import React, { Component } from "react";
-import { Navbar, NavItem, Dropdown, Modal } from 'react-materialize'
+import { Navbar, NavItem, Modal } from 'react-materialize'
 import API from '../../utils/API';
-import styled from 'styled-components';
 import "./navbar.css";
-
-const StyledDropdown = styled(Dropdown)`
-  &&&&&& {
-      position: absolute !important;
-      top: 64px !important;
-  }
-`
 
 // Need to add conditional...if user is logged in load dropdownB, if not, load A
 export default class NavBar extends Component {
@@ -33,8 +25,8 @@ export default class NavBar extends Component {
       <Navbar brand='logo' right>
         <NavItem>
           <Modal
-            header='Sign In'
-            trigger={<NavItem> Sign In</NavItem>}>
+            header='Log In'
+            trigger={<div>Log In</div>}>
             <form onSubmit={this.handleSubmit}>
               <h4> Username: </h4>
               <input
@@ -53,19 +45,13 @@ export default class NavBar extends Component {
                 onChange={this.handleChange('password')} 
               >
               </input>
-              <button type="submit" className="formSubmit"> Sign In </button>
+              <button type="submit" className="formSubmit"> Log In </button>
             </form>
           </Modal>
         </NavItem>
-        <StyledDropdown trigger={
-          <NavItem> Username </NavItem>
-        }>
-          <NavItem> Profile</NavItem>
-          <NavItem> Favorites </NavItem>
-          <NavItem divider />
-          <NavItem> Sign Out</NavItem>
-        </StyledDropdown>
-
+        <NavItem><div> Username</div></NavItem>
+        <NavItem><div> Profile </div></NavItem>
+        <NavItem><div> Sign Out </div> </NavItem>
       </Navbar>
     );
   }
