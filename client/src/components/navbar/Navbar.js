@@ -40,6 +40,7 @@ export default class NavBar extends Component {
               <input
                 name="username"
                 type="text"
+                value={this.state.username}
                 onChange={this.handleChange('username')} 
               >
               </input>
@@ -48,6 +49,7 @@ export default class NavBar extends Component {
               <input
                 name="password"
                 type="text"
+                value={this.state.password}
                 onChange={this.handleChange('password')} 
               >
               </input>
