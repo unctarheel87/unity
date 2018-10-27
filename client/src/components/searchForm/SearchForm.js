@@ -3,7 +3,9 @@ import "./searchForm.css";
 import API from '../../utils/API';
 
 export default class SearchFrom extends Component {
-  state = {}
+  state = {
+    search: ''
+  }
   handleChange = name => event => {
     this.setState({
       [name]: event.target.value,
