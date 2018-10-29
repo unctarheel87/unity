@@ -8,15 +8,18 @@ router.post('/register', function(req, res) {
     if (err) {
       return res.render('register', { user });
     }
-
     passport.authenticate('local')(req, res, function () {
       res.redirect('/');
     });
   });
 });
 
-router.get('/login', function(req, res) {
-  res.send('hello');
+router.get('/user', function(req, res) {
+  if(req.user) {
+    res.json( {user: req.user} )
+  } else {
+    res.end()
+  }
 });
 
 router.post('/login', passport.authenticate('local'), function(req, res) {
@@ -26,6 +29,7 @@ router.post('/login', passport.authenticate('local'), function(req, res) {
 
 router.get('/logout', function(req, res) {
   req.logout();
+  console.log(req.user)
   res.redirect('/');
 });
 
