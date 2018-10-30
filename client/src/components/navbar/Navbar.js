@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Navbar, NavItem, Modal } from 'react-materialize'
-import API from '../../utils/API';
 import "./navbar.css";
 
 // Need to add conditional...if user is logged in load dropdownB, if not, load A
@@ -16,12 +15,10 @@ export default class NavBar extends Component {
   };
   handleSubmit = event => {
     event.preventDefault();
-    API.auth({
+    this.props.handleLogin({
       username: this.state.username,
       password: this.state.password
     })
-    .then(response => console.log(response))
-    .catch(err => console.log(err))
   }
   render() {
     return (
@@ -54,7 +51,7 @@ export default class NavBar extends Component {
         </NavItem>
         <NavItem><div> Username</div></NavItem>
         <NavItem><div> Profile </div></NavItem>
-        <NavItem><div> Sign Out </div> </NavItem>
+        <NavItem onClick={this.props.handleLogout}><div> Sign Out </div> </NavItem>
       </Navbar>
     );
   }
