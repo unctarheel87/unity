@@ -1,31 +1,36 @@
-var db = require("../models");
+const express = require('express');
+const passport = require('passport');
+const User = require('../models/User');
+const router = express.Router();
 
-module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
+router.post('/register', function(req, res) {
+  User.register(new User({ username : req.body.username }), req.body.password, function(err, user) {
+    if (err) {
+      return res.render('register', { user });
+    }
+    passport.authenticate('local')(req, res, function () {
+      res.redirect('/');
     });
   });
+});
 
-  // Get an example by id
-  app.get("/api/examples/:id", function(req, res) {
-    db.Example.findOne({where: {id: req.params.id}}).then(function(dbExamples) {
-      res.json(dbExamples);
-    });
-  });
+router.get('/user', function(req, res) {
+  if(req.user) {
+    res.json( {user: req.user} )
+  } else {
+    res.end()
+  }
+});
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
-    db.Example.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
+router.post('/login', passport.authenticate('local'), function(req, res) {
+  console.log(req.user)
+  res.redirect('/');
+});
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.json(dbExample);
-    });
-  });
-};
+router.get('/logout', function(req, res) {
+  req.logout();
+  console.log(req.user)
+  res.redirect('/');
+});
+
+module.exports = router;
