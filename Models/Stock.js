@@ -13,12 +13,12 @@ const StockSchema = new Schema({
     type: String,
     trim: true
   },
-  summary: {
+  sector: {
     type: String,
     required: false,
     trim: true
   },
-  link: {
+  price: {
     type: String,
     required: false,
     trim: true
