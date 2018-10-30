@@ -1,9 +1,11 @@
 .jumbotron{
   position: relative;
-  background-color: lightgray;
-  height: 60vh;
+  /* background-color: rgb(121, 122, 165); */
+  background-color: rgb(147, 161, 173);
+  height: 40vh;
   display: flex;
   justify-content: center;
+  
 }
 
 form {

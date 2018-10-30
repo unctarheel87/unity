@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import Unitybkgd from "./components/Unitybkgd"
 import Footer from "./components/footer"
 import Jumbotron from "./components/jumbotron"
 import Nav from "./components/navbar"
@@ -37,15 +38,20 @@ class App extends Component {
   render() {
     return (
       <div>
+      
         <Nav />
+        <Unitybkgd />
         <Jumbotron>
         </Jumbotron>
-        <SearchForm />
+
         <ChartComponent />
-        <StockItem />
+        <SearchForm />
+
+        {/* <StockItem /> */}
         
         <br></br>
         <Footer />
+        
       </div>
     )
   }
