@@ -4,6 +4,7 @@
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
+    "@material-ui/core": "^3.3.2",
     "axios": "^0.18.0",
     "d3-dsv": "^1.0.10",
     "d3-request": "^1.0.6",

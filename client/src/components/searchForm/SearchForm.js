@@ -1,10 +1,17 @@
-import React, { Component } from "react";
-import "./searchForm.css";
+import React, { Component } from 'react';
+import './searchForm.css';
+import StockItem from '../stockItem';
 import API from '../../utils/API';
 
 export default class SearchFrom extends Component {
   state = {
-    search: ''
+    search: '',
+    stock: []
+  }
+  componentDidMount() {
+    API.companySearch('AAPL')
+    .then(res => console.log(res.data.quote))
+    .catch(err => console.log(err))
   }
   handleChange = name => event => {
     this.setState({
@@ -13,10 +20,10 @@ export default class SearchFrom extends Component {
   };
   handleSubmit = event => {
     event.preventDefault();
-    API.stockSearch(this.state.search)
-    .then(response => console.log(response.data))
+    API.companySearch(this.state.search)
+    .then(res => this.setState({ stock: res.data.quote }))
     .catch(err => console.log(err))
-  }
+  };
   render() {
     return (
       <div className="searchForm">
@@ -30,6 +37,7 @@ export default class SearchFrom extends Component {
           />
           <button type="submit">Search</button>
         </form>
+        <StockItem stock={this.state.stock} />
       </div>
     );
   }

@@ -10,8 +10,12 @@ export default {
             'function=TIME_SERIES_INTRADAY' + 
             '&symbol=' + ticker +
             '&apikey=' + API_KEY +
-            '&datatype=csv'
-    
+            '&datatype=csv';
+    return axios.get(url);
+  },
+  companySearch (ticker) {
+    const url = 'https://api.iextrading.com/1.0/stock/' + ticker + '/batch?types=quote,news&range=1m&last=5';
+    return axios.get(url);
   }
 };
 
