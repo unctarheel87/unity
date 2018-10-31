@@ -9,18 +9,13 @@ import StockSearchBar from '../components/stockSearchBar';
 import StockSearchList from '../components/stockSearchList';
 // END OF SEARCH
 class ChartComponent extends React.Component {
-  componentDidMount() {
-    getData("FB").then(data => {
-      this.setState({ data })
-    })
-  }
   render() {
-    if (this.state == null) {
+    if (this.props.stockData.data == null) {
       return <div>Loading...</div>
     }
     return (
       <TypeChooser>
-        {type => <Chart type={type} data={this.state.data} />}
+        {type => <Chart type={type} data={this.props.stockData.data} />}
       </TypeChooser>
     )
   }
@@ -34,12 +29,17 @@ class Search extends React.Component {
     this.state = {
       stocks: [],
       term: null,
-      value: ''
+      value: '',
+      data: null
     };
 
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
+
+  getStockData = (term) => getData(term).then(data => {
+    this.setState({ data })
+  })
 
   handleChange(event) {
     this.setState({
@@ -70,6 +70,7 @@ class Search extends React.Component {
             stocks
           }
         })
+        this.getStockData(this.state.term)
       })
       .catch(error => console.log(error))
   }
@@ -88,7 +89,7 @@ class Search extends React.Component {
               <StockSearchList stockItems={this.state.stocks} />
             </div>
             {/* END OF SEARCH */}
-            <ChartComponent />
+            <ChartComponent stockData={this.state} />
             <br></br>
           </div>
         )
