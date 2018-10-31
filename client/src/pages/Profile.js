@@ -5,9 +5,10 @@ export default class Profile extends React.Component {
   render() {
     return (
       <div>
-        <Bio />
+        Profile Page
+        {/* <Bio />
         <Alerts />
-        <Favorites />
+        <Favorites /> */}
       </div>
     )
   }
