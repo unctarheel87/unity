@@ -4,7 +4,8 @@ const passport = require("passport");
 const PORT = process.env.PORT || 3001;
 const LocalStrategy = require("passport-local");
 const mongoose = require("mongoose");
-const router = require('./routes/apiRoutes');
+const userRoutes = require('./routes/userRoutes');
+const stockRoutes = require('./routes/stockRoutes');
 
 const app = express();
 // Define middleware here
@@ -23,7 +24,8 @@ app.use(require('express-session')({
 app.use(passport.initialize());
 app.use(passport.session())
 
-app.use(router)
+app.use(userRoutes)
+app.use('/stocks', stockRoutes)
 
 //configure passport
 var User = require('./models/User');

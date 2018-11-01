@@ -2,7 +2,6 @@ import axios from "axios";
 import { csv } from "d3-request";
 import { timeParse } from "d3-time-format";
 
-
 const stockSearch = (ticker) => {
   const API_KEY = 'NSUNV8LPVSSN0247'
   const url = 
@@ -39,13 +38,25 @@ function stockDataPromise(url) {
   }) 
 }
 
-export function getData(ticker) {
-  const data = stockSearch(ticker)
-    .then(response => {
-      const arr = response
-      const newArr = arr.map(parseData(parseDate))
-      console.log(newArr)
-      return newArr
-  })
-  return data
+export default {
+  getData: (ticker) => {
+    const data = stockSearch(ticker)
+      .then(response => {
+        const arr = response
+        const newArr = arr.map(parseData(parseDate))
+        console.log(newArr)
+        return newArr
+    })
+    return data
+  },
+  insertTicker: (ticker) => {
+    axios.post('/stocks', {ticker: ticker})
+      .then(response => console.log(response))
+      .catch(err => console.log(err))
+  },
+  getWatchList: () => {
+    axios.get('/stocks')
+    .then(response => console.log(response))
+    .catch(err => console.log(err))
+  }
 }
