@@ -1,15 +1,12 @@
 .companyinfo{
-  /* position: relative; */
   background-color: lightgray;
-  /* height: 60vh; */
-  /* display:flex;  */
   
   
 } 
 
 .title{
   text-align: center;
-
+  margin-top: 20px;
 }
 
 .sub-title{
@@ -28,5 +25,9 @@
 }
 
 .searchBtn {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+img{
+  margin-top: 20px;
 }
