@@ -16,8 +16,13 @@ import Profile from "./pages/Profile"
 class App extends Component {
   state = {
     loggedIn: false,
-    user: null
+    user: null,
+    currentPage: ""
   }
+
+  handlePageChange = page => {
+    this.setState({ currentPage: page });
+  };
 
   componentDidMount() {
     Auth.getUser()
@@ -65,7 +70,10 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Nav handleLogin={this.handleLogin} handleLogout={this.handleLogout} />
+          <Nav 
+          handlePageChange = {this.handlePageChange} currentPage={this.state.currentPage}
+          handleLogin={this.handleLogin}
+          handleLogout={this.handleLogout} />
           {this.state.loggedIn && (
             <div className="user-dash">
               <UserDashboard />
