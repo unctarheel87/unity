@@ -1,5 +1,5 @@
 import React from "react";
-import { getData } from "../utils/API.js"
+import API from "../utils/API.js"
 import { TypeChooser } from "react-stockcharts/lib/helper";
 import Chart from '../components/sChart';
 // START OF SEARCH
@@ -37,7 +37,7 @@ class Search extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  getStockData = (term) => getData(term).then(data => {
+  getStockData = (term) => API.getData(term).then(data => {
     this.setState({ data })
   })
 

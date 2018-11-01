@@ -6,8 +6,6 @@ import Nav from "./components/navbar"
 import UserDashboard from "./components/userDashboard";
 import Auth from './utils/Auth';
 
-import { TypeChooser } from "react-stockcharts/lib/helper";
-
 //Pages
 import Search from "./pages/Search"
 import Home from "./pages/Home";
