@@ -1,5 +1,6 @@
 import React from 'react';
 import './stockSearchItem.css';
+import API from '../../utils/API';
 
 const StockSearchItem = (stock, props) => {
 
@@ -9,6 +10,7 @@ const StockSearchItem = (stock, props) => {
       {/* parseInt is used to convert the number to an integer and then used toFixed(2) to convert it to a number with 2 decimal places. Adding 2 decimal places to an integer will always result in .00 */}
       <div><span>Price: </span>${ parseInt(stock.price).toFixed(2) }</div>
       <div><span>Time: </span>{ stock.timestamp }</div>
+      <button onClick={() => API.insertTicker(stock.symbol)}>Add stock to watchlist</button>
     </li>
   )
 }
