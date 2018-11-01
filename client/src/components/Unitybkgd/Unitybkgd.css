@@ -1,14 +1,16 @@
 #home{
   background-image: url('unityhands.jpg');
   
-  height: 650px;
+  height: 80vh;
   position: relative;
   width: 100%;
+
+  margin-bottom:1em;
   background-repeat: no-repeat center center fixed; 
-   -webkit-background-size: cover; 
-   -moz-background-size: cover; 
+  -webkit-background-size: cover; 
+  /* -moz-background-size: cover; 
    -o-background-size: cover; 
-   background-size: cover; 
+   background-size: cover;  */
   
 } 
 
@@ -17,9 +19,13 @@
   display: table-cell;
   text-align:center;
   vertical-align: middle;
-  margin-top: 220px ;
+  /* margin-top: 220px ; */
+  margin-top: 25vh ;
+
   position: absolute;
   margin-left: 200px;
+
+  
  
 
 }
