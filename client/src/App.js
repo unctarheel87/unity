@@ -3,7 +3,6 @@ import { Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-d
 import './App.css';
 import Footer from "./components/footer"
 import Nav from "./components/navbar"
-import UserDashboard from "./components/userDashboard";
 import Auth from './utils/Auth';
 
 //Pages
@@ -66,7 +65,7 @@ class App extends Component {
           <Nav handleLogin={this.handleLogin} handleLogout={this.handleLogout} />
           {this.state.loggedIn && (
             <div className="user-dash">
-              <UserDashboard />
+              <Search user={this.state.user} loggedIn={this.state.loggedIn} />
             </div>
           )}
           {!this.state.loggedIn && (

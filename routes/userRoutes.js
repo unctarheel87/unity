@@ -16,7 +16,14 @@ router.post('/register', function(req, res) {
 
 router.get('/user', function(req, res) {
   if(req.user) {
-    res.json( {user: req.user} )
+    User.findById(req.user.id)
+    .populate('stocks')
+    .then(dbUser => {
+      console.log(dbUser)
+      res.json({user: dbUser} );
+    }).catch(err => {
+      console.log(err);
+    })
   } else {
     res.end()
   }
