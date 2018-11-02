@@ -4,6 +4,7 @@ import './App.css';
 import Footer from "./components/footer"
 import Nav from "./components/navbar"
 import UserDashboard from "./components/userDashboard";
+import AdvisorDashboard from "./components/advisorDashboard";
 import Auth from './utils/Auth';
 
 //Pages
@@ -79,6 +80,7 @@ class App extends Component {
           )}
           {!this.state.loggedIn && (
             <div>
+              <Route path="/advisor" component={AdvisorDashboard} />
               <Route path="/home" component={Home} />
               <Route path="/search" component={Search} />
               <Route path="/profile" component={Profile} />
