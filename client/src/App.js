@@ -3,6 +3,7 @@ import { Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-d
 import './App.css';
 import Footer from "./components/footer"
 import Nav from "./components/navbar"
+import AdvisorDashboard from "./components/advisorDashboard";
 import Auth from './utils/Auth';
 
 //Pages
@@ -13,8 +14,13 @@ import Profile from "./pages/Profile"
 class App extends Component {
   state = {
     loggedIn: false,
-    user: null
+    user: null,
+    currentPage: ""
   }
+
+  handlePageChange = page => {
+    this.setState({ currentPage: page });
+  };
 
   componentDidMount() {
     Auth.getUser()
@@ -62,7 +68,10 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Nav handleLogin={this.handleLogin} handleLogout={this.handleLogout} />
+          <Nav 
+          handlePageChange = {this.handlePageChange} currentPage={this.state.currentPage}
+          handleLogin={this.handleLogin}
+          handleLogout={this.handleLogout} />
           {this.state.loggedIn && (
             <div className="user-dash">
               <Search user={this.state.user} loggedIn={this.state.loggedIn} />
@@ -70,6 +79,7 @@ class App extends Component {
           )}
           {!this.state.loggedIn && (
             <div>
+              <Route path="/advisor" component={AdvisorDashboard} />
               <Route path="/home" component={Home} />
               <Route path="/search" component={Search} />
               <Route path="/profile" component={Profile} />
