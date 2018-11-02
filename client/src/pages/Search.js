@@ -23,8 +23,8 @@ class ChartComponent extends React.Component {
 
 class Search extends React.Component {
   //START OF SEARCH
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       stocks: [],
@@ -86,11 +86,13 @@ class Search extends React.Component {
               <StockSearchBar value={value}
                 onChange={this.handleChange}
                 onClick={this.handleClick} />
-              <StockSearchList stockItems={this.state.stocks} />
+              <StockSearchList stockItems={this.state.stocks} loggedIn={this.props.loggedIn} />
             </div>
             {/* END OF SEARCH */}
             <ChartComponent stockData={this.state} />
-            <br></br>
+            <div className="watchList">
+              <h1>{this.props.user && this.props.user.stocks[0].ticker}</h1>
+            </div>
           </div>
         )
     }

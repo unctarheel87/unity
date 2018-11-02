@@ -13,7 +13,11 @@ const UserSchema = new Schema({
     type: String,
     required: false,
     trim: true
-  } 
+  },
+  stocks: [{
+    type: Schema.Types.ObjectId,
+    ref: "Stock"
+  }] 
 });
 
 UserSchema.plugin(passportLocalMongoose);

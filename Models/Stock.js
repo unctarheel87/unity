@@ -22,12 +22,7 @@ const StockSchema = new Schema({
     type: String,
     required: false,
     trim: true
-  },
-  note: {
-    type: Schema.Types.ObjectId,
-    ref: "Note"
   }
-  
 });
 
 const Stock = mongoose.model("Stock", StockSchema);
