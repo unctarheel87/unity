@@ -67,9 +67,11 @@ class App extends Component {
       <Router>
         <div>
           <Nav 
-          handlePageChange = {this.handlePageChange} currentPage={this.state.currentPage}
+          handlePageChange = {this.handlePageChange}
+          currentPage={this.state.currentPage}
           handleLogin={this.handleLogin}
-          handleLogout={this.handleLogout} />
+          handleLogout={this.handleLogout}
+          userExists={this.state.loggedIn} />
           {this.state.loggedIn && (
             <div className="user-dash">
               <Route path="/user" component={() => <UserDashboard user={this.state.user} />} />
@@ -79,7 +81,7 @@ class App extends Component {
           {!this.state.loggedIn && (
             <div>
               <Route path="/advisor" component={AdvisorDashboard} />
-              <Route path="/home" component={Home} />
+              <Route exact path="/" component={Home} />
               <Route path="/search" component={Search} />
               <br></br>
               <Footer />
