@@ -10,6 +10,7 @@ import Auth from './utils/Auth';
 import Search from "./pages/Search"
 import Home from "./pages/Home";
 import UserDashboard from './components/userDashboard';
+import API from './utils/API';
 
 class App extends Component {
   state = {
@@ -24,6 +25,8 @@ class App extends Component {
 
   componentDidMount() {
     this.getUser()
+    API.getCompanyInfo('fb');
+    API.getCompanyNews('fb');
   }
   getUser = () => Auth.getUser()
     .then(response => {
