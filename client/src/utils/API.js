@@ -58,5 +58,15 @@ export default {
     axios.get('/stocks')
     .then(response => console.log(response))
     .catch(err => console.log(err))
+  },
+  getCompanyInfo: (ticker) => {
+    axios.get('https://api.iextrading.com/1.0/stock/' + ticker + '/company')
+      .then(response => console.log(response))
+      .catch(err => console.log(err));
+  },
+  getCompanyNews: (ticker) => {
+    axios.get('https://api.iextrading.com/1.0/stock/' + ticker + '/news')
+      .then(response => console.log(response))
+      .catch(err => console.log(err));
   }
 }
