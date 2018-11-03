@@ -1,25 +1,13 @@
 import React from "react";
 import API from "../utils/API.js"
-import { TypeChooser } from "react-stockcharts/lib/helper";
-import Chart from '../components/sChart';
 // START OF SEARCH
 import _ from 'lodash';
 import axios from 'axios';
 import StockSearchBar from '../components/stockSearchBar';
 import StockSearchList from '../components/stockSearchList';
+import ChartComponent from '../components/ChartComponent';
 // END OF SEARCH
-class ChartComponent extends React.Component {
-  render() {
-    if (this.props.stockData.data == null) {
-      return <div>Loading...</div>
-    }
-    return (
-      <TypeChooser>
-        {type => <Chart type={type} data={this.props.stockData.data} />}
-      </TypeChooser>
-    )
-  }
-}
+
 
 class Search extends React.Component {
   //START OF SEARCH
