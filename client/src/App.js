@@ -10,6 +10,7 @@ import Auth from './utils/Auth';
 import Search from "./pages/Search"
 import Home from "./pages/Home";
 import Profile from "./pages/Profile"
+import UserDashboard from './components/userDashboard';
 
 class App extends Component {
   state = {
@@ -23,31 +24,29 @@ class App extends Component {
   };
 
   componentDidMount() {
-    Auth.getUser()
-      .then(response => {
-        console.log(response.data);
-        if (!!response.data.user) {
-          this.setState({
-            loggedIn: true,
-            user: response.data.user
-          });
-        } else {
-          this.setState({
-            loggedIn: false,
-            user: null
-          });
-        }
-      });
+    this.getUser()
   }
+  getUser = () => Auth.getUser()
+    .then(response => {
+      console.log(response.data);
+      if (!!response.data.user) {
+        this.setState({
+          loggedIn: true,
+          user: response.data.user
+        });
+      } else {
+        this.setState({
+          loggedIn: false,
+          user: null
+        });
+      }
+  });
   handleLogin = (user) => {
     Auth.login(user)
       .then(response => {
         console.log(response);
         if (response.status === 200) {
-          this.setState({
-            loggedIn: true,
-            user: response.data.user
-          });
+          this.getUser()
         }
       });
   }
@@ -74,7 +73,8 @@ class App extends Component {
           handleLogout={this.handleLogout} />
           {this.state.loggedIn && (
             <div className="user-dash">
-              <Search user={this.state.user} loggedIn={this.state.loggedIn} />
+              <UserDashboard user={this.state.user} />
+              <Route path="/search" component={() => <Search loggedIn={this.state.loggedIn} />} />
             </div>
           )}
           {!this.state.loggedIn && (
