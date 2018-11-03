@@ -9,7 +9,6 @@ import Auth from './utils/Auth';
 //Pages
 import Search from "./pages/Search"
 import Home from "./pages/Home";
-import Profile from "./pages/Profile"
 import UserDashboard from './components/userDashboard';
 import API from './utils/API';
 
@@ -71,21 +70,22 @@ class App extends Component {
       <Router>
         <div>
           <Nav 
-          handlePageChange = {this.handlePageChange} currentPage={this.state.currentPage}
+          handlePageChange = {this.handlePageChange}
+          currentPage={this.state.currentPage}
           handleLogin={this.handleLogin}
-          handleLogout={this.handleLogout} />
+          handleLogout={this.handleLogout}
+          userExists={this.state.loggedIn} />
           {this.state.loggedIn && (
             <div className="user-dash">
-              <UserDashboard user={this.state.user} />
+              <Route path="/user" component={() => <UserDashboard user={this.state.user} />} />
               <Route path="/search" component={() => <Search loggedIn={this.state.loggedIn} />} />
             </div>
           )}
           {!this.state.loggedIn && (
             <div>
               <Route path="/advisor" component={AdvisorDashboard} />
-              <Route path="/home" component={Home} />
+              <Route exact path="/" component={Home} />
               <Route path="/search" component={Search} />
-              <Route path="/profile" component={Profile} />
               <br></br>
               <Footer />
             </div>
