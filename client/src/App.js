@@ -9,7 +9,6 @@ import Auth from './utils/Auth';
 //Pages
 import Search from "./pages/Search"
 import Home from "./pages/Home";
-import Profile from "./pages/Profile"
 import UserDashboard from './components/userDashboard';
 
 class App extends Component {
@@ -75,7 +74,7 @@ class App extends Component {
           userExists={this.state.loggedIn} />
           {this.state.loggedIn && (
             <div className="user-dash">
-              <UserDashboard user={this.state.user} />
+              <Route path="/user" component={() => <UserDashboard user={this.state.user} />} />
               <Route path="/search" component={() => <Search loggedIn={this.state.loggedIn} />} />
             </div>
           )}
@@ -84,7 +83,6 @@ class App extends Component {
               <Route path="/advisor" component={AdvisorDashboard} />
               <Route exact path="/" component={Home} />
               <Route path="/search" component={Search} />
-              <Route path="/profile" component={Profile} />
               <br></br>
               <Footer />
             </div>
