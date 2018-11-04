@@ -4,12 +4,13 @@ import { Card } from 'react-materialize';
 export default (props) => {
   return (
     <Card>
+      <h5>Company Information</h5>
       <ul>
-        <li>Company Name: {props.stockInfo.companyName} </li>
-        <li>Exchange: {props.stockInfo.exchange}</li>
-        <li>Sector: {props.stockInfo.sector}</li>
-        <li>Description: {props.stockInfo.description}</li>
-        <li>Website: {props.stockInfo.website}</li>
+        <strong><li>Company Name: </li></strong>{props.stockInfo.companyName} 
+        <strong><li>Exchange: </li></strong>{props.stockInfo.exchange}
+        <strong><li>Sector: </li></strong> {props.stockInfo.sector}
+        <strong><li>Description: </li></strong> {props.stockInfo.description}
+        <strong><li>Website: </li></strong>{props.stockInfo.website}
       </ul>
     </Card>
   )
