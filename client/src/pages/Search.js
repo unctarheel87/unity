@@ -5,6 +5,7 @@ import StockSearchInfo from '../components/StockSearchInfo';
 import StockSearchNews from '../components/StockSearchNews';
 import StockSearchSuggestions from '../components/StockSearchSuggestions';
 import ChartComponent from '../components/ChartComponent';
+import "./search.css"
 
 class Search extends React.Component {
   state = {
@@ -36,33 +37,54 @@ class Search extends React.Component {
       .catch(error => console.log(error))
     //news  
     API.getCompanyNews(term)
-    .then(response => {
-      console.log(response.data)
-      this.setState({ stockNews: response.data[0] })
-    })
-    .catch(error => console.log(error))
+      .then(response => {
+        console.log(response.data)
+        this.setState({ stockNews: response.data[0] })
+      })
+      .catch(error => console.log(error))
     //peers
     API.getCompanyPeers(term)
-    .then(response => {
-      console.log(response.data)
-      this.setState({ peers: response.data })
-    })
-    .catch(error => console.log(error))
+      .then(response => {
+        console.log(response.data)
+        this.setState({ peers: response.data })
+      })
+      .catch(error => console.log(error))
   }
   render() {
-    return (
-      <div className="App">
-        {/* Rhummel and Brendan arrange these components */}
-        <StockSearchBar value={this.state.value}
-          onChange={this.handleChange}
-          onClick={this.handleClick} 
-        />
-        <StockSearchInfo stockInfo={this.state.stockInfo} loggedIn={this.props.loggedIn} />
-        <StockSearchNews stockNews={this.state.stockNews} />
-        <StockSearchSuggestions peers={this.state.peers} />
-        <ChartComponent stockData={this.state} />
-      </div>
-    )
+    if (this.state.peers.length > 0) {
+      return (
+        <div className="App">
+            {/* Rhummel and Brendan arrange these components */}
+            <div className="searchLeft">
+              <StockSearchBar value={this.state.value}
+                onChange={this.handleChange}
+                onClick={this.handleClick}
+              />
+              <StockSearchSuggestions peers={this.state.peers} />
+               <StockSearchNews stockNews={this.state.stockNews} />
+            </div>
+            <div className="searchRight">
+              <ChartComponent stockData={this.state} />
+              <StockSearchInfo stockInfo={this.state.stockInfo} loggedIn={this.props.loggedIn} />
+             
+            </div>
+          </div>
+      
+      )
+    } else {
+      return (
+        <div className="App">
+          {/* Rhummel and Brendan arrange these components */}
+          <div className="s={12}">
+            <StockSearchBar value={this.state.value}
+              onChange={this.handleChange}
+              onClick={this.handleClick}
+            />
+          </div>
+        </div>
+      );
+
+    }
   }
 };
 

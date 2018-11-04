@@ -1,0 +1,16 @@
+
+.searchLeft {
+   
+    max-width: 40%;
+    float:left;
+    height:80%;
+
+}
+.searchRight {
+   
+    max-width: 60%;
+    float: left;
+    height:80%
+
+ }
+

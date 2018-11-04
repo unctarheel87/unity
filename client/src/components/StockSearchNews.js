@@ -1,12 +1,13 @@
 import React from 'react';
-import { Card } from 'react-materialize';
+ import { Card } from 'react-materialize';
 
 export default (props) => {
   return (
     <Card>
+      <h5>Related News</h5>
       <ul>
-        <li>{props.stockNews.headline}</li>
-        <li>{props.stockNews.summary}</li>
+      <strong><li>{props.stockNews.headline}</li></strong>
+       <li>{props.stockNews.summary}</li> 
       </ul>
     </Card>
   )
