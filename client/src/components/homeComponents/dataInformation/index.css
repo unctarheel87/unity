@@ -1,0 +1,16 @@
+.infoContainer{ 
+    background: darkslategray;
+}
+
+.dataInformation{
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin: 0 10%;
+    padding: 5% 0;
+}
+
+.graphImage{
+    max-height: 30vh;
+    max-width: 50%;
+}

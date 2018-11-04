@@ -42,7 +42,7 @@ class App extends Component {
           user: null
         });
       }
-  });
+    });
   handleLogin = (user) => {
     Auth.login(user)
       .then(response => {
@@ -69,14 +69,15 @@ class App extends Component {
     return (
       <Router>
         <div>
-          <Nav 
-          handlePageChange = {this.handlePageChange}
-          currentPage={this.state.currentPage}
-          handleLogin={this.handleLogin}
-          handleLogout={this.handleLogout}
-          userExists={this.state.loggedIn} />
+          <Nav
+            handlePageChange={this.handlePageChange}
+            currentPage={this.state.currentPage}
+            handleLogin={this.handleLogin}
+            handleLogout={this.handleLogout}
+            userExists={this.state.loggedIn} />
           {this.state.loggedIn && (
             <div className="user-dash">
+              <Route exact path="/" component={Home} />
               <Route path="/user" component={() => <UserDashboard user={this.state.user} />} />
               <Route path="/search" component={() => <Search loggedIn={this.state.loggedIn} />} />
             </div>
