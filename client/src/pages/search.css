@@ -5,12 +5,25 @@
 }
 
 .searchSideNav {
-    width: 30%;
+    width: 22%;
     height: 600px;
 }
 .searchResults {
    
-    width: 70%;
+    width: 78%;
 
- }
+}
+
+.stock-search-bar {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-stockbar-form input {
+    width: 100%;
+}
+
+.search-stockbar-form {
+    height: 360px;
+}
 

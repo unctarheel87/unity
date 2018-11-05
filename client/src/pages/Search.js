@@ -12,6 +12,7 @@ class Search extends React.Component {
     stockInfo: [],
     stockNews: [],
     peers: [],
+    price: '',
     logo: '',
     term: null,
     value: '',
@@ -24,6 +25,11 @@ class Search extends React.Component {
     this.setState({
       value: event.target.value
     });
+  }
+  handleClickEvent = event => {
+    if (event) event.preventDefault();
+    this.setState({ data: "loading" });
+    setTimeout(this.handleClick, 2000);
   }
   handleClick = event => {
     if (event) event.preventDefault();
@@ -46,15 +52,20 @@ class Search extends React.Component {
     //peers
     API.getCompanyPeers(term)
       .then(response => {
-        console.log(response.data)
         this.setState({ peers: response.data })
       })
       .catch(error => console.log(error))
     //logo
     API.getCompanyLogo(term)
       .then(response => {
-        console.log(response.data)
         this.setState({ logo: response.data })
+      })
+      .catch(error => console.log(error))
+    //price
+    API.getCompanyPrice(term)
+      .then(response => {
+        console.log(response.data)
+        this.setState({ price: response.data })
       })
       .catch(error => console.log(error))
   }
@@ -67,15 +78,15 @@ class Search extends React.Component {
                 <SearchSideNav 
                   value={this.state.value}
                   onChange={this.handleChange}
-                  onClick={this.handleClick}
+                  onClick={this.handleClickEvent}
                   peers={this.state.peers}
                 />
               </div>
               <div className="searchResults">
                 <StockSearchHeader logo={this.state.logo} stockInfo={this.state.stockInfo} />
                 <ChartComponent stockData={this.state} />
+                <StockSearchInfo stockInfo={this.state.stockInfo} stockPrice={this.state.price} loggedIn={this.loggedIn} />
                 <StockSearchNews stockNews={this.state.stockNews} />
-                <StockSearchInfo stockInfo={this.state.stockInfo} loggedIn={this.loggedIn} />
               </div>
             </div>
             

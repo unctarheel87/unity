@@ -1,17 +1,37 @@
 import React from 'react';
-import { Card } from 'react-materialize';
+import { Table } from 'react-materialize';
 
 export default (props) => {
   return (
-    <Card>
-      <h5>Company Information</h5>
-      <ul>
-        <strong><li>Company Name: </li></strong>{props.stockInfo.companyName} 
-        <strong><li>Exchange: </li></strong>{props.stockInfo.exchange}
-        <strong><li>Sector: </li></strong> {props.stockInfo.sector}
-        <strong><li>Description: </li></strong> {props.stockInfo.description}
-        <strong><li>Website: </li></strong>{props.stockInfo.website}
-      </ul>
-    </Card>
+      <Table>
+        <span>{props.stockPrice}</span>
+        <thead>
+          <tr>
+            <th data-field="title"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <strong><td>Company Name</td></strong>
+            <td>{props.stockInfo.companyName}</td>
+          </tr>
+          <tr>
+            <strong><td>Exchange</td></strong>
+            <td>{props.stockInfo.exchange}</td>
+          </tr>
+          <tr>
+            <strong><td>Sector</td></strong>
+            <td>{props.stockInfo.sector}</td>
+          </tr>
+          <tr>
+            <strong><td>Description</td></strong>
+            <td>{props.stockInfo.description}</td>
+          </tr>
+          <tr>
+            <strong><td>Website</td></strong>
+            <td><a href={props.stockInfo.website} target="_blank" rel="noopener noreferrer">{props.stockInfo.website}</a></td>
+          </tr>
+        </tbody>
+      </Table>
   )
 }

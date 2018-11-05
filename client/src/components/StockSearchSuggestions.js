@@ -8,7 +8,7 @@ export default (props) => {
     )
   })
   return (
-    <Card>
+    <Card style={{minHeight: 100}}>
       <h5>Suggested Searches</h5>
       <ul>
         {peer}
