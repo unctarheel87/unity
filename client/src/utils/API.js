@@ -67,5 +67,8 @@ export default {
   },
   getCompanyPeers: (ticker) => {
     return axios.get('https://api.iextrading.com/1.0/stock/' + ticker + '/peers')
+  },
+  getCompanyLogo: (ticker) => {
+    return axios.get('https://api.iextrading.com/1.0/stock/' + ticker + '/logo')
   }
 }

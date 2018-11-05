@@ -1,16 +1,16 @@
 
-.searchLeft {
-   
-    max-width: 40%;
-    float:left;
-    height:80%;
-
+.searchContainer {
+    display: flex;
+    flex-direction: row;
 }
-.searchRight {
+
+.searchSideNav {
+    width: 30%;
+    height: 600px;
+}
+.searchResults {
    
-    max-width: 60%;
-    float: left;
-    height:80%
+    width: 70%;
 
  }
 

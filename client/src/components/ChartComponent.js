@@ -1,6 +1,6 @@
 import React from 'react';
 import { TypeChooser } from "react-stockcharts/lib/helper";
-import Chart from '../components/sChart';
+import Chart from './sChart';
 
 export default class ChartComponent extends React.Component {
   render() {

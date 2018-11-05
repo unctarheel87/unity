@@ -1,17 +1,18 @@
 import React from "react";
 import API from "../utils/API.js"
-import StockSearchBar from '../components/stockSearchBar';
 import StockSearchInfo from '../components/StockSearchInfo';
 import StockSearchNews from '../components/StockSearchNews';
-import StockSearchSuggestions from '../components/StockSearchSuggestions';
+import SearchSideNav from '../components/searchSideNav';
+import StockSearchHeader from '../components/StockSearchHeader';
 import ChartComponent from '../components/ChartComponent';
-import "./search.css"
+import "./search.css";
 
 class Search extends React.Component {
   state = {
     stockInfo: [],
     stockNews: [],
     peers: [],
+    logo: '',
     term: null,
     value: '',
     data: null
@@ -49,42 +50,38 @@ class Search extends React.Component {
         this.setState({ peers: response.data })
       })
       .catch(error => console.log(error))
+    //logo
+    API.getCompanyLogo(term)
+      .then(response => {
+        console.log(response.data)
+        this.setState({ logo: response.data })
+      })
+      .catch(error => console.log(error))
   }
   render() {
-    if (this.state.peers.length > 0) {
       return (
         <div className="App">
             {/* Rhummel and Brendan arrange these components */}
-            <div className="searchLeft">
-              <StockSearchBar value={this.state.value}
-                onChange={this.handleChange}
-                onClick={this.handleClick}
-              />
-              <StockSearchSuggestions peers={this.state.peers} />
-               <StockSearchNews stockNews={this.state.stockNews} />
+            <div className="searchContainer">
+              <div className="searchSideNav">
+                <SearchSideNav 
+                  value={this.state.value}
+                  onChange={this.handleChange}
+                  onClick={this.handleClick}
+                  peers={this.state.peers}
+                />
+              </div>
+              <div className="searchResults">
+                <StockSearchHeader logo={this.state.logo} stockInfo={this.state.stockInfo} />
+                <ChartComponent stockData={this.state} />
+                <StockSearchNews stockNews={this.state.stockNews} />
+                <StockSearchInfo stockInfo={this.state.stockInfo} loggedIn={this.loggedIn} />
+              </div>
             </div>
-            <div className="searchRight">
-              <ChartComponent stockData={this.state} />
-              <StockSearchInfo stockInfo={this.state.stockInfo} loggedIn={this.props.loggedIn} />
-             
-            </div>
+            
           </div>
       
       )
-    } else {
-      return (
-        <div className="App">
-          {/* Rhummel and Brendan arrange these components */}
-          <div className="s={12}">
-            <StockSearchBar value={this.state.value}
-              onChange={this.handleChange}
-              onClick={this.handleClick}
-            />
-          </div>
-        </div>
-      );
-
-    }
   }
 };
 
