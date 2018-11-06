@@ -1,5 +1,26 @@
 .infoContainer{ 
-    background: darkslategray;
+    background: #fff;
+    color: #2f4f4f;
+    padding: 1% 0;
+}
+
+.infoContainerHeader{
+    text-align: center;
+    font-weight: bold;
+}
+
+.material-icons{
+    color: #4db6ac;
+}
+.iconText{
+    margin-top: 0;
+    color: rgb(65, 197, 197);
+    font-size: 24px;
+}
+
+.iconArea{
+    margin-top: 6%;
+    text-align: center;
 }
 
 .dataInformation{
@@ -7,10 +28,45 @@
     flex-flow: row;
     justify-content: space-between;
     margin: 0 10%;
-    padding: 5% 0;
+    padding: 1% 0 3%;
 }
 
 .graphImage{
-    max-height: 30vh;
+    max-height: 35vh;
     max-width: 50%;
+}
+
+.graphDescription{
+    width: 45%;
+}
+
+p{
+    font-size: 18px;
+}
+
+@media screen and (max-width:600px){
+    .dataInformation{
+        flex-flow: column;
+        justify-content: space-around;
+        text-align: center;
+    }
+    .infoContainerHeader{
+        font-size: 24px;
+    }
+    .graphImage{
+        max-height: 400px;
+        max-width: 100%;
+    }
+    .iconArea{
+        margin-top: 10%;
+    }
+    .iconText{
+        margin-top: 10px;
+        color: rgb(65, 197, 197);
+        font-size: 16px;
+    }
+    .graphDescription{
+        width: 100%;
+    }
+    
 }
