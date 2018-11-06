@@ -3,5 +3,9 @@
   top: -64px;
 } */
 .nav-wrapper {
-  background-color: darkslategrey;
+  background-color: white;
+}
+
+nav .brand-logo, nav ul a {
+  color: black;
 }
