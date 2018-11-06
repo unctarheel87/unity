@@ -83,7 +83,9 @@ class Search extends React.Component {
                 />
               </div>
               <div className="searchResults">
-                <StockSearchHeader logo={this.state.logo} stockInfo={this.state.stockInfo} />
+              {/* <StockSearchHeader logo={this.state.logo} stockInfo={this.state.stockInfo} /> */}
+
+                <StockSearchHeader logo={this.state.logo} stockInfo={this.state.stockInfo} stockPrice={this.state.price} />
                 <ChartComponent stockData={this.state} />
                 <StockSearchInfo stockInfo={this.state.stockInfo} stockPrice={this.state.price} loggedIn={this.loggedIn} />
                 <StockSearchNews stockNews={this.state.stockNews} />
