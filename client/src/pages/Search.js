@@ -28,6 +28,10 @@ class Search extends React.Component {
   }
   handleClickEvent = event => {
     if (event) event.preventDefault();
+    if(this.state.value === '') {
+      alert("Please enter in stock symbol");
+      return;
+    }
     this.setState({ data: "loading" });
     setTimeout(this.handleClick, 2000);
   }

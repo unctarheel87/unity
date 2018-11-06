@@ -1,5 +1,4 @@
 import React from 'react';
-import { Card } from 'react-materialize';
 
 export default (props) => {
   const peer = props.peers.map(peer => {
@@ -8,11 +7,11 @@ export default (props) => {
     )
   })
   return (
-    <Card style={{minHeight: 100}}>
-      <h5>Suggested Searches</h5>
+    <div>
+      <h6>Suggested Searches</h6>
       <ul>
         {peer}
       </ul>
-    </Card>
+    </div>
   )
 }

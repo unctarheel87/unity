@@ -12,7 +12,7 @@ function StockSearchBar(props) {
           <input className="search-stockbar-input" placeholder="Enter company ticker "
                 value={ props.value }
                 onChange={ props.onChange } />
-          <button className="search-stockbar-button" onClick={ props.onClick }><Icon className="btn primary">search</Icon></button>
+          <button onClick={ props.onClick }><Icon className="search-stockbar-button" small>search</Icon></button>
         </form>
       </div>
       
