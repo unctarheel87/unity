@@ -3,17 +3,21 @@ import { Table } from 'react-materialize';
 
 export default (props) => {
   return (
-      <Table>
-        <span>{props.stockPrice}</span>
+      <Table className="companyInfo">
         <thead>
           <tr>
             <th data-field="title"></th>
+            
           </tr>
         </thead>
         <tbody>
           <tr>
             <strong><td>Company Name</td></strong>
             <td>{props.stockInfo.companyName}</td>
+          </tr>
+          <tr>
+            <strong><td>Current Price</td></strong>
+            <td>{props.stockPrice}</td>
           </tr>
           <tr>
             <strong><td>Exchange</td></strong>

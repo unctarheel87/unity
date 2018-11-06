@@ -3,7 +3,7 @@ import React from 'react';
 
 export default (props) => {
   return (
-    <Card>
+    <Card className="news">
       <h5>Related News</h5>
       <ul>
       <strong><li>{props.stockNews.headline}</li></strong>
