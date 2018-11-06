@@ -44,7 +44,6 @@ class AreaChartWithEdge extends React.Component {
 					width={650}
 					margin={{ left: 70, right: 70, top: 20, bottom: 30 }}
 					type={type}
-					seriesName="MSFT"
 					data={data}
 					xScale={xScale}
 					xAccessor={xAccessor}

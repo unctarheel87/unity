@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom"
-import { Navbar, NavItem, Modal } from 'react-materialize'
+import { Navbar, NavItem, Input, Modal } from 'react-materialize'
 import "./navbar.css";
 
 // Need to add conditional...if user is logged in load dropdownB, if not, load A
@@ -42,6 +42,15 @@ export default class NavBar extends React.Component {
               header='Log In'
               trigger={<div> Log In</div>}>
               <form onSubmit={this.handleSubmit}>
+                <Input s={6} 
+                  type='select' 
+                  label="Choose your role" 
+                  onChange={this.props.handleRoleChange}
+                  value={this.props.role}
+                >
+                  <option value='user'>User</option>
+                  <option value='advisor'>Advisor</option>
+                </Input>
                 <h4> Username: </h4>
                 <input
                   name="username"

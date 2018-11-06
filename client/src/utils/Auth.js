@@ -1,18 +1,35 @@
 import axios from "axios";
 
-export default {
+export const User = {
   getUser: () => {
-    return axios.get('/user');
+    return axios.get('/client/user');
   },
   register: (user) => {
     console.log(user)
-    return axios.post('/register', user)
+    return axios.post('/client/register', user)
   },
   login: (user) => {
     console.log(user)
-    return axios.post('/login', user)
+    return axios.post('/client/login', user)
   },
   logout: () => {
-    return axios.get('/logout');
-  },
+    return axios.get('/client/logout');
+  }
 };
+
+export const Advisor = {
+    getUser: () => {
+      return axios.get('/advisor/user');
+    },
+    register: (user) => {
+      console.log(user)
+      return axios.post('/advisor/register', user)
+    },
+    login: (user) => {
+      console.log(user)
+      return axios.post('/advisor/login', user)
+    },
+    logout: () => {
+      return axios.get('/advisor/logout');
+    }
+}
