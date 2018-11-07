@@ -1,7 +1,22 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 import { Modal, Button, Input } from 'react-materialize'
 import { User, Advisor } from '../../utils/Auth';
 import "./signupForm.css"
+
+const StyledButton = styled(Button)`
+    &&&&&&{
+      margin-left: 20px;
+      border: 2px solid #008000;
+      color: #008000;
+      background-color: #fff;
+      border-radius: 12px;
+    }
+    &:hover{
+      background: #008000 !important;
+      color: #fff !important;
+    }
+`
 
 export default class signupForm extends Component {
   state = {
@@ -40,7 +55,7 @@ export default class signupForm extends Component {
       <div className="signupForm">
         <Modal
           header='Sign Up'
-          trigger={<Button >Sign Up Today</Button>}
+          trigger={<StyledButton >Sign Up Today</StyledButton>}
         >
           <form onSubmit={this.handleSubmit}>
             <Input s={6} 

@@ -5,7 +5,7 @@
   width: 100%;
   margin-bottom: 0;
   background-repeat: no-repeat center center fixed; 
-  -webkit-background-size: cover; 
+  background-size: cover;
   /* -moz-background-size: cover; 
    -o-background-size: cover; 
    background-size: cover;  */ 
@@ -31,10 +31,10 @@ h3, h4 {
   flex-wrap: none;
   width: 100%;
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #fff;
+  color: darkslategray;
   /* margin-left: 200px; */
 }
 
