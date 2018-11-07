@@ -41,3 +41,7 @@
     width:50%;
     float: left;
 }
+
+svg {
+    position: relative !important;
+}
