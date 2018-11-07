@@ -46,10 +46,7 @@ class App extends Component {
           user: null
         });
       }
-<<<<<<< HEAD
     });
-=======
-  });
   getAdvisor = () => Advisor.getUser()
     .then(response => {
       console.log(response.data);
@@ -65,10 +62,9 @@ class App extends Component {
           advisor: null
         });
       }
-  });
->>>>>>> 24164678f4e4d73e7e1b8c40c7956ea4ebbf9344
+    });
   handleLogin = (user) => {
-    if(this.state.role === 'user') {
+    if (this.state.role === 'user') {
       User.login(user)
         .then(response => {
           console.log(response);
@@ -76,7 +72,7 @@ class App extends Component {
             this.getUser()
           }
         });
-    } else if(this.state.role === 'advisor') {
+    } else if (this.state.role === 'advisor') {
       Advisor.login(user)
         .then(response => {
           console.log(response);
@@ -84,11 +80,11 @@ class App extends Component {
             this.getAdvisor()
           }
         });
-    }  
+    }
   }
   handleLogout = (event) => {
     event.preventDefault();
-    if(this.state.role === 'user') {
+    if (this.state.role === 'user') {
       User.logout()
         .then(response => {
           console.log(response.data);
@@ -99,18 +95,18 @@ class App extends Component {
             });
           }
         });
-    } else if(this.state.role === 'advisor') {
+    } else if (this.state.role === 'advisor') {
       Advisor.logout()
-      .then(response => {
-        console.log(response.data);
-        if (response.status === 200) {
-          this.setState({
-            advisorLoggedIn: false,
-            advisor: null
-          });
-        }
-      });
-    } 
+        .then(response => {
+          console.log(response.data);
+          if (response.status === 200) {
+            this.setState({
+              advisorLoggedIn: false,
+              advisor: null
+            });
+          }
+        });
+    }
   }
   handleRoleChange = event => {
     this.setState({ role: event.target.value })
@@ -119,24 +115,15 @@ class App extends Component {
     return (
       <Router>
         <div>
-<<<<<<< HEAD
           <Nav
             handlePageChange={this.handlePageChange}
             currentPage={this.state.currentPage}
             handleLogin={this.handleLogin}
             handleLogout={this.handleLogout}
-            userExists={this.state.loggedIn} />
-=======
-          <Nav 
-            handlePageChange = {this.handlePageChange}
-            currentPage={this.state.currentPage}
-            handleLogin={this.handleLogin}
-            handleLogout={this.handleLogout}
-            userExists={this.state.loggedIn} 
+            userExists={this.state.loggedIn}
             handleRoleChange={this.handleRoleChange}
             role={this.state.role}
           />
->>>>>>> 24164678f4e4d73e7e1b8c40c7956ea4ebbf9344
           {this.state.loggedIn && (
             <div className="user-dash">
               <Route exact path="/" component={Home} />

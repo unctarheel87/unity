@@ -4,23 +4,36 @@
 } */
 nav{
   background-color: #fff; 
-  position: fixed;
 }
 .nav-wrapper {
   background-color: #fff;
   padding: 0 30px;
   margin: 0 auto;
-  max-width: 1024px;
+  
+  position: fixed;
+  z-index: 99999999;
 }
 
+.flexAdjust{
+  display: flex;
+  justify-content: space-around;
+}
+.selfCenter{
+  justify-self: center;
+}
+
+.selfEnd{
+  justify-self: flex-end;
+}
 .link-color{
-  color:#2f4f4f !important;
+  color:#336780 !important;
   font-weight: bold;
   font-size: 18px;
 }
 
-nav .brand-logo{
-  color: darkslategray
+.navLogo{
+  height: 50px;
+  margin-top: 10px;
 }
 
 .material-icons{
@@ -28,6 +41,14 @@ nav .brand-logo{
 }
 
 .logInButton:hover{
-  background-color: #2f4f4f !important;
+  background-color: #336780 !important;
   color: #fff !important;
+}
+
+
+@media screen and (max-width: 600px){
+  .navLogo{
+  height: 30px;
+  margin-top: 15px;
+}
 }
