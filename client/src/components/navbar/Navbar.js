@@ -1,7 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom"
-import { Navbar, NavItem, Input, Modal } from 'react-materialize'
+import { Button, Navbar, NavItem, Modal } from 'react-materialize'
+import styled from "styled-components";
 import "./navbar.css";
+
+import logo from "../Unitybkgd/unity-logo-b2.png";
+
+const StyledButton = styled(Button)`
+    &&&&&&{
+      margin-left: 20px;
+      border: 2px solid #336780;
+      color: #336780;
+      background-color: #fff;
+      border-radius: 12px;
+    }
+    &:hover{
+      background: #336780;
+      color: #fff;
+    }
+`
+
+
+const brandLogo = <img src={logo} alt="logo-brand" className="navLogo hide-on-med-and-up"></img>
 
 // Need to add conditional...if user is logged in load dropdownB, if not, load A
 export default class NavBar extends React.Component {
@@ -21,70 +41,75 @@ export default class NavBar extends React.Component {
       password: this.state.password
     })
   }
+
   render() {
     return (
-      <Navbar className="nav-bar" brand='Unity' right>
-        <NavItem
-          onClick={() => this.props.handlePageChange("Search")}
-          className={this.props.currentPage === "Search" ? "active" : "deactive"}>
-          <Link to="/search"> Search </Link>
-        </NavItem>
-        {!this.props.userExists ? (
-          // <NavItem>
-          //   <Modal
-          //     header='Modal Header'
-          //     trigger={<Button>MODAL</Button>}>
-          //     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
-          //   </Modal>
-          // </NavItem>
-          <NavItem>
-            <Modal
-              header='Log In'
-              trigger={<div> Log In</div>}>
-              <form onSubmit={this.handleSubmit}>
-                <Input s={6} 
-                  type='select' 
-                  label="Choose your role" 
-                  onChange={this.props.handleRoleChange}
-                  value={this.props.role}
-                >
-                  <option value='user'>User</option>
-                  <option value='advisor'>Advisor</option>
-                </Input>
-                <div className="input-field">
-                  <input
-                    name="username"
-                    type="text"
-                    value={this.state.username}
-                    onChange={this.handleChange('username')}
-                  />
-                  <label for="username">username</label>
+
+      <div className="z-depth-4">
+        <Navbar brand={brandLogo}>
+          <div className="flexAdjust">
+            <span className="selfCenter">
+              <li>
+                <div
+                  onClick={() => this.props.handlePageChange("home")}>
+                  <Link className="link-color" to="/"> Home </Link>
                 </div>
-                <div className="input-field">
-                  <input
-                    name="password"
-                    type="password"
-                    value={this.state.password}
-                    onChange={this.handleChange('password')}
-                  />
-                  <label for="password">password</label>
+              </li>
+              <li className="centerMargin">
+                <div
+                  onClick={() => this.props.handlePageChange("Search")}>
+                  <Link className="link-color" to="/search"> Search </Link>
                 </div>
-                <button type="submit" className="formSubmit waves-effect waves-light btn"> Log In </button>
-              </form>
-            </Modal>
-          </NavItem>
-        ) : (
-            <span>
-              <NavItem><div> Hello, Username</div></NavItem>
-              <NavItem
-                onClick={() => this.props.handlePageChange("Profile")}
-                className={this.props.currentPage === "Profile" ? "active" : "deactive"}>
-                <Link to="/profile"> Profile </Link>
-              </NavItem>
-              <NavItem onClick={this.props.handleLogout}><div> Sign Out </div> </NavItem>
+              </li>
             </span>
-          )}
-      </Navbar>
+            <span className="selfEnd">
+              {!this.props.userExists ? (
+                <li>
+                  <div>
+                    <Modal
+                      header='Log In'
+                      trigger={<StyledButton className="logInButton"> Log In</StyledButton>}>
+                      <form onSubmit={this.handleSubmit}>
+                        <h4> Username: </h4>
+                        <input
+                          name="username"
+                          type="text"
+                          value={this.state.username}
+                          onChange={this.handleChange('username')}
+                        >
+                        </input>
+                        <br></br>
+                        <h4> Password: </h4>
+                        <input
+                          name="password"
+                          type="text"
+                          value={this.state.password}
+                          onChange={this.handleChange('password')}
+                        >
+                        </input>
+                        <StyledButton type="submit" className="formSubmit logInButton modal-action modal-close">Log In</StyledButton>
+                      </form>
+                    </Modal>
+                  </div>
+                </li>
+              ) : (
+                  <span>
+                    <NavItem>
+                      <div className="link-color" > Hello, Username</div>
+                    </NavItem>
+                    <li>
+                      <div
+                        onClick={() => this.props.handlePageChange("Profile")}>
+                        <Link className="link-color" to="/user"> Dashboard </Link>
+                      </div>
+                    </li>
+                    <NavItem onClick={this.props.handleLogout}><div className="link-color"> Sign Out </div> </NavItem>
+                  </span>
+                )}
+            </span>
+          </div>
+        </Navbar>
+      </div >
     );
   }
 }

@@ -2,10 +2,53 @@
   position: absolute;
   top: -64px;
 } */
+nav{
+  background-color: #fff; 
+}
 .nav-wrapper {
-  background-color: white;
+  background-color: #fff;
+  padding: 0 30px;
+  margin: 0 auto;
+  
+  position: fixed;
+  z-index: 99999999;
 }
 
-nav .brand-logo, nav ul a {
-  color: black;
+.flexAdjust{
+  display: flex;
+  justify-content: space-around;
+}
+.selfCenter{
+  justify-self: center;
+}
+
+.selfEnd{
+  justify-self: flex-end;
+}
+.link-color{
+  color:#336780 !important;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.navLogo{
+  height: 50px;
+  margin-top: 10px;
+}
+
+.material-icons{
+  color: darkslategray;
+}
+
+.logInButton:hover{
+  background-color: #336780 !important;
+  color: #fff !important;
+}
+
+
+@media screen and (max-width: 600px){
+  .navLogo{
+  height: 30px;
+  margin-top: 15px;
+}
 }
