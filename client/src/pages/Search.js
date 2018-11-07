@@ -1,16 +1,19 @@
 import React from "react";
 import API from "../utils/API.js"
-import StockSearchBar from '../components/stockSearchBar';
 import StockSearchInfo from '../components/StockSearchInfo';
 import StockSearchNews from '../components/StockSearchNews';
-import StockSearchSuggestions from '../components/StockSearchSuggestions';
+import SearchSideNav from '../components/searchSideNav';
+import StockSearchHeader from '../components/StockSearchHeader';
 import ChartComponent from '../components/ChartComponent';
+import "./search.css";
 
 class Search extends React.Component {
   state = {
     stockInfo: [],
     stockNews: [],
     peers: [],
+    price: '',
+    logo: '',
     term: null,
     value: '',
     data: null
@@ -22,6 +25,11 @@ class Search extends React.Component {
     this.setState({
       value: event.target.value
     });
+  }
+  handleClickEvent = event => {
+    if (event) event.preventDefault();
+    this.setState({ data: "loading" });
+    setTimeout(this.handleClick, 2000);
   }
   handleClick = event => {
     if (event) event.preventDefault();
@@ -36,33 +44,57 @@ class Search extends React.Component {
       .catch(error => console.log(error))
     //news  
     API.getCompanyNews(term)
-    .then(response => {
-      console.log(response.data)
-      this.setState({ stockNews: response.data[0] })
-    })
-    .catch(error => console.log(error))
+      .then(response => {
+        console.log(response.data)
+        this.setState({ stockNews: response.data[0] })
+      })
+      .catch(error => console.log(error))
     //peers
     API.getCompanyPeers(term)
-    .then(response => {
-      console.log(response.data)
-      this.setState({ peers: response.data })
-    })
-    .catch(error => console.log(error))
+      .then(response => {
+        this.setState({ peers: response.data })
+      })
+      .catch(error => console.log(error))
+    //logo
+    API.getCompanyLogo(term)
+      .then(response => {
+        this.setState({ logo: response.data })
+      })
+      .catch(error => console.log(error))
+    //price
+    API.getCompanyPrice(term)
+      .then(response => {
+        console.log(response.data)
+        this.setState({ price: response.data })
+      })
+      .catch(error => console.log(error))
   }
   render() {
-    return (
-      <div className="App">
-        {/* Rhummel and Brendan arrange these components */}
-        <StockSearchBar value={this.state.value}
-          onChange={this.handleChange}
-          onClick={this.handleClick} 
-        />
-        <StockSearchInfo stockInfo={this.state.stockInfo} loggedIn={this.props.loggedIn} />
-        <StockSearchNews stockNews={this.state.stockNews} />
-        <StockSearchSuggestions peers={this.state.peers} />
-        <ChartComponent stockData={this.state} />
-      </div>
-    )
+      return (
+        <div className="App">
+            {/* Rhummel and Brendan arrange these components */}
+            <div className="searchContainer">
+              <div className="searchSideNav">
+                <SearchSideNav 
+                  value={this.state.value}
+                  onChange={this.handleChange}
+                  onClick={this.handleClickEvent}
+                  peers={this.state.peers}
+                />
+              </div>
+              <div className="searchResults">
+              {/* <StockSearchHeader logo={this.state.logo} stockInfo={this.state.stockInfo} /> */}
+
+                <StockSearchHeader logo={this.state.logo} stockInfo={this.state.stockInfo} stockPrice={this.state.price} />
+                <ChartComponent stockData={this.state} />
+                <StockSearchInfo stockInfo={this.state.stockInfo} stockPrice={this.state.price} loggedIn={this.loggedIn} />
+                <StockSearchNews stockNews={this.state.stockNews} />
+              </div>
+            </div>
+            
+          </div>
+      
+      )
   }
 };
 

@@ -1,0 +1,44 @@
+
+.searchContainer {
+    display: flex;
+    flex-direction: row;
+    width: 85%;
+    height: 85%;
+    margin: 0px auto;
+    margin-top: 4em;
+}
+
+.searchSideNav {
+    width: 22%;
+    height: 80%;
+}
+.searchResults {
+    width: 78%;
+}
+
+.stock-search-bar {
+    display: flex;
+    flex-direction: column;
+    height:40%;
+}
+
+.search-stockbar-form input {
+    width: 100%;
+}
+
+.search-stockbar-form {
+    height: 30%;
+
+}
+
+.news {
+   display: flex; 
+   width:50%; 
+   float: right;
+}
+
+.companyInfo {
+    display: flex;
+    width:50%;
+    float: left;
+}

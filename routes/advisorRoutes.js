@@ -1,12 +1,12 @@
 const express = require('express');
 const passport = require('passport');
-const User = require('../models/User');
+const Advisor = require('../models/Advisor');
 const router = express.Router();
 
 router.post('/register', function(req, res) {
-  User.register(new User({ username : req.body.username }), req.body.password, function(err, user) {
+  Advisor.register(new Advisor({ username : req.body.username }), req.body.password, function(err, user) {
     if (err) console.log(err)
-    passport.authenticate('user-local')(req, res, function () {
+    passport.authenticate('advisor-local')(req, res, function () {
       res.redirect('/');
     });
   });
@@ -14,8 +14,8 @@ router.post('/register', function(req, res) {
 
 router.get('/user', function(req, res) {
   if(req.user) {
-    User.findById(req.user.id)
-    .populate('stocks')
+    Advisor.findById(req.user.id)
+    .populate('users')
     .then(dbUser => {
       console.log(dbUser)
       res.json({user: dbUser} );
@@ -27,7 +27,7 @@ router.get('/user', function(req, res) {
   }
 });
 
-router.post('/login', passport.authenticate('user-local'), function(req, res) {
+router.post('/login', passport.authenticate('advisor-local'), function(req, res) {
   console.log(req.user)
   res.redirect('/');
 });

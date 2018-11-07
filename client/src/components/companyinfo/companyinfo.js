@@ -8,7 +8,7 @@ export default () => (
         <h3 className="title">Why Choose Unity</h3>
         <h5 className="sub-title"> Unity provides a unique experience for someone who wants to take control of their own </h5>
         <h5 className="sub-title"> financial success,  while utilizing the wealth of knowledge from your personal advisor. </h5>
-        <Row className="container">
+        <Row className="container info-content">
             <Col s={12} m={4} className="infobox">
                 <img className="responsive-img circle" src="./assets/why.jpg" alt="left-pic" />
                 <p className="infoheading">Research</p>

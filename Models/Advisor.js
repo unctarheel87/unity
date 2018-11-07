@@ -3,7 +3,7 @@ const passportLocalMongoose = require('passport-local-mongoose');
 
 const Schema = mongoose.Schema;
 
-const UserSchema = new Schema({
+const AdvisorSchema = new Schema({
   username: {
     type: String,
     required: true,
@@ -16,16 +16,16 @@ const UserSchema = new Schema({
   },
   userType: {
     type: String,
-    default: 'type1'
+    default: 'type2'
   },
-  stocks: [{
+  users: [{
     type: Schema.Types.ObjectId,
-    ref: "Stock"
+    ref: "User"
   }] 
 });
 
-UserSchema.plugin(passportLocalMongoose);
+AdvisorSchema.plugin(passportLocalMongoose);
 
-const User = mongoose.model("User", UserSchema);
+const Advisor = mongoose.model("Advisor", AdvisorSchema);
 
-module.exports = User;
+module.exports = Advisor;

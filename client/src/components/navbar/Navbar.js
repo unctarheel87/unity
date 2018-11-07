@@ -1,7 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom"
+<<<<<<< HEAD
 import { Button, Navbar, NavItem, Modal } from 'react-materialize'
 import styled from "styled-components";
+=======
+import { Navbar, NavItem, Input, Modal } from 'react-materialize'
+>>>>>>> 24164678f4e4d73e7e1b8c40c7956ea4ebbf9344
 import "./navbar.css";
 
 const StyledButton = styled(Button)`

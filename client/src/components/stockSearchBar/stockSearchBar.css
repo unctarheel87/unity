@@ -1,12 +1,29 @@
-  .stock-search-bar {
-    margin: 2.5rem;
-    }
-    
+ 
+ /* .stock-search-bar {
+  display:flex;  
+  width:100%;
+  height: 20%;
+  border:4px solid red; 
+     
+    } */
+  
+  /* h4 {
+    margin-top: 100px;
+  }   */
     .search-stockbar-input {
       outline: none;
-      width: 50%;
+      width: 100%;
       height: 35px;
+      align-content: center;
     }
+    .search-stockbar-form {
+      display:flex;
+      flex-direction: column;
+      justify-content:center;
+      align-items: center;
+      margin: 0 auto;
+    }
+
 
     button.search-stockbar-button {
       text-transform: uppercase;
@@ -15,6 +32,8 @@
       border: 1px solid black;
       border-radius: 3px;
     }
+
+   
     
     @media only screen and (min-width: 600px) {
       .search-stockbar-input {

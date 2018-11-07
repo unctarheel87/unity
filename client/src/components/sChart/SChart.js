@@ -38,65 +38,66 @@ class AreaChartWithEdge extends React.Component {
 		const end = xAccessor(data[Math.max(0, data.length - 150)]);
 		const xExtents = [start, end];
 		return (
-			<ChartCanvas height={400}
-				ratio={ratio}
-				width={width}
-				margin={{ left: 70, right: 70, top: 20, bottom: 30 }}
-				type={type}
-				seriesName="MSFT"
-				data={data}
-				xScale={xScale}
-				xAccessor={xAccessor}
-				displayXAccessor={displayXAccessor}
-				xExtents={xExtents}
-			>
-				<Chart id={1}
-					yExtents={d => [d.high, d.low]}
+			
+				<ChartCanvas height={400}
+					ratio={ratio}
+					width={800}
+					margin={{ left: 70, right: 70, top: 20, bottom: 30 }}
+					type={type}
+					data={data}
+					xScale={xScale}
+					xAccessor={xAccessor}
+					displayXAccessor={displayXAccessor}
+					xExtents={xExtents}
 				>
-					<XAxis axisAt="bottom" orient="bottom"/>
-					<YAxis axisAt="right" orient="right" ticks={5} />
 
-					<MouseCoordinateX
-						at="bottom"
-						orient="bottom"
-						displayFormat={timeFormat("%Y-%m-%d")} />
-					<MouseCoordinateY
-						at="right"
-						orient="right"
-						displayFormat={format(".2f")} />
+					<Chart id={1}
+						yExtents={d => [d.high, d.low]}
+					>
+						<XAxis axisAt="bottom" orient="bottom" />
+						<YAxis axisAt="right" orient="right" ticks={5} />
 
-					<AreaSeries yAccessor={d => d.close}/>
+						<MouseCoordinateX
+							at="bottom"
+							orient="bottom"
+							displayFormat={timeFormat("%Y-%m-%d")} />
+						<MouseCoordinateY
+							at="right"
+							orient="right"
+							displayFormat={format(".2f")} />
 
-					<SingleValueTooltip
-						xLabel="Date" /* xLabel is optional, absence will not show the x value */ yLabel="C"
-						yAccessor={d => d.close}
-						xDisplayFormat={timeFormat("%Y-%m-%d")} yDisplayFormat={format(".2f")}
-						/* valueStroke="green" - optional prop */
-						/* labelStroke="#4682B4" - optional prop */
-						origin={[-40, 0]}/>
-					<SingleValueTooltip
-						yLabel="Volume" yAccessor={(d) => d.volume}
-						origin={[-40, 20]}/>
-				</Chart>
-				<Chart id={2}
-					yExtents={d => d.volume}
-					height={150} origin={(w, h) => [0, h - 150]}
-				>
-					<YAxis axisAt="left" orient="left" ticks={5} tickFormat={format(".2s")}/>
+						<AreaSeries yAccessor={d => d.close} />
 
-					<MouseCoordinateY
-						at="left"
-						orient="left"
-						displayFormat={format(".4s")} />
+						<SingleValueTooltip
+							xLabel="Date" /* xLabel is optional, absence will not show the x value */ yLabel="C"
+							yAccessor={d => d.close}
+							xDisplayFormat={timeFormat("%Y-%m-%d")} yDisplayFormat={format(".2f")}
+							/* valueStroke="green" - optional prop */
+							/* labelStroke="#4682B4" - optional prop */
+							origin={[-40, 0]} />
+						<SingleValueTooltip
+							yLabel="Volume" yAccessor={(d) => d.volume}
+							origin={[-40, 20]} />
+					</Chart>
+					<Chart id={2}
+						yExtents={d => d.volume}
+						height={150} origin={(w, h) => [0, h - 150]}
+					>
+						<YAxis axisAt="left" orient="left" ticks={5} tickFormat={format(".2s")} />
 
-					<BarSeries yAccessor={d => d.volume}
-						stroke fill={(d) => d.close > d.open ? "#6BA583" : "#FF0000"}
-						opacity={0.4}
-						widthRatio={1} />
-				</Chart>
-				<CrossHairCursor />
-			</ChartCanvas>
-		);
+						<MouseCoordinateY
+							at="left"
+							orient="left"
+							displayFormat={format(".4s")} />
+
+						<BarSeries yAccessor={d => d.volume}
+							stroke fill={(d) => d.close > d.open ? "#6BA583" : "#FF0000"}
+							opacity={0.4}
+							widthRatio={1} />
+					</Chart>
+					<CrossHairCursor />
+				</ChartCanvas>
+			);
 	}
 }
 

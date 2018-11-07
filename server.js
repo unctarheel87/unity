@@ -6,6 +6,7 @@ const LocalStrategy = require("passport-local");
 const mongoose = require("mongoose");
 const userRoutes = require('./routes/userRoutes');
 const stockRoutes = require('./routes/stockRoutes');
+const advisorRoutes = require('./routes/advisorRoutes');
 
 const app = express();
 // Define middleware here
@@ -24,14 +25,36 @@ app.use(require('express-session')({
 app.use(passport.initialize());
 app.use(passport.session())
 
-app.use(userRoutes)
+app.use('/client', userRoutes)
 app.use('/stocks', stockRoutes)
+app.use('/advisor', advisorRoutes)
 
-//configure passport
-var User = require('./models/User');
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+//configure passport User
+const User = require('./models/User');
+passport.use('user-local', new LocalStrategy(User.authenticate()));
+
+//configure passport Advisor
+const Advisor = require('./models/Advisor');
+passport.use('advisor-local', new LocalStrategy(Advisor.authenticate()));
+
+//serialize logic
+passport.serializeUser(function(user, done) {
+  const key = {
+    id: user.id,
+    type: user.userType
+  }
+  done(null, key);
+})
+
+passport.deserializeUser(function(key, done) {
+  const Model = key.type === 'type1' ? User : Advisor; 
+  Model.findOne({
+    _id: key.id
+  }, '-salt -password', function(err, user) {
+    done(err, user);
+  })
+})
+
 
 // Define API routes here
 // Send every other request to the React app
