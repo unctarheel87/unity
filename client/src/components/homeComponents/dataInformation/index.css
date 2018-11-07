@@ -5,6 +5,7 @@
 }
 
 .infoContainerHeader{
+    font-size: 36px;
     text-align: center;
     font-weight: bold;
 }
@@ -14,12 +15,13 @@
 }
 .iconText{
     margin-top: 0;
+    margin-bottom: 0;
     color: rgb(65, 197, 197);
     font-size: 24px;
 }
 
 .iconArea{
-    margin-top: 6%;
+    margin-top: 2%;
     text-align: center;
 }
 

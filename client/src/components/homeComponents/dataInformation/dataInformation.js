@@ -2,7 +2,7 @@ import React from "react"
 import "./index.css"
 import Graph from "./graphExample.PNG"
 import {Col, Row} from "react-materialize"
-import styled from "styled-components"
+// import styled from "styled-components"
 
 export default () => (
     <div className="infoContainer">
