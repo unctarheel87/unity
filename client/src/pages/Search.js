@@ -21,6 +21,10 @@ class Search extends React.Component {
   getStockData = (term) => API.getData(term).then(data => {
     this.setState({ data })
   })
+  handleAddtoWatchList = () => {
+    let ticker = this.state.stockInfo.symbol
+    API.insertTicker(ticker);
+  }
   handleChange = event => {
     this.setState({
       value: event.target.value
@@ -28,6 +32,10 @@ class Search extends React.Component {
   }
   handleClickEvent = event => {
     if (event) event.preventDefault();
+    if(this.state.value === '') {
+      alert("please enter in symbol");
+      return;
+    }
     this.setState({ data: "loading" });
     setTimeout(this.handleClick, 2000);
   }
@@ -85,7 +93,9 @@ class Search extends React.Component {
               <div className="searchResults">
               {/* <StockSearchHeader logo={this.state.logo} stockInfo={this.state.stockInfo} /> */}
 
-                <StockSearchHeader logo={this.state.logo} stockInfo={this.state.stockInfo} stockPrice={this.state.price} />
+                <StockSearchHeader logo={this.state.logo} stockInfo={this.state.stockInfo} 
+                                  stockPrice={this.state.price}
+                                  onClick={this.handleAddtoWatchList}/>
                 <ChartComponent stockData={this.state} />
                 <StockSearchInfo stockInfo={this.state.stockInfo} stockPrice={this.state.price} loggedIn={this.loggedIn} />
                 <StockSearchNews stockNews={this.state.stockNews} />
