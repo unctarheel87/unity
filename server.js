@@ -37,6 +37,7 @@ passport.use('user-local', new LocalStrategy(User.authenticate()));
 const Advisor = require('./models/Advisor');
 passport.use('advisor-local', new LocalStrategy(Advisor.authenticate()));
 
+//serialize logic
 passport.serializeUser(function(user, done) {
   const key = {
     id: user.id,

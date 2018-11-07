@@ -1,33 +1,47 @@
-.companyinfo{
-  background-color: lightgray;
-  
-  
+.companyinfo {
+  background-color: #fff;
+  padding: 30px;
 } 
 
-.title{
+.title {
   text-align: center;
-  margin-top: 0px;
+  margin-bottom: 20px;
 }
 
-.sub-title{
+.sub-title {
   text-align: center;
- 
 }
 
 .infoheading {
   font-weight: bolder;
   font-size: 16px;
+  text-align: center;
 }
 
-.infobody{
-  font-size: 16px;
+.info-content {
+  margin-top: 30px;
+}
 
+.infobody {
+  font-size: 16px;
+}
+
+.infobox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .searchBtn {
   margin-bottom: 20px;
 }
 
-img{
+img {
   margin-top: 20px;
+}
+
+img.responsive-img {
+  height: 210px;
+  width: 230px;
+  text-align: center;
 }

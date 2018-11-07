@@ -23,7 +23,7 @@ export default class NavBar extends React.Component {
   }
   render() {
     return (
-      <Navbar brand='Unity' right>
+      <Navbar className="nav-bar" brand='Unity' right>
         <NavItem
           onClick={() => this.props.handlePageChange("Search")}
           className={this.props.currentPage === "Search" ? "active" : "deactive"}>
@@ -51,24 +51,25 @@ export default class NavBar extends React.Component {
                   <option value='user'>User</option>
                   <option value='advisor'>Advisor</option>
                 </Input>
-                <h4> Username: </h4>
-                <input
-                  name="username"
-                  type="text"
-                  value={this.state.username}
-                  onChange={this.handleChange('username')}
-                >
-                </input>
-                <br></br>
-                <h4> Password: </h4>
-                <input
-                  name="password"
-                  type="text"
-                  value={this.state.password}
-                  onChange={this.handleChange('password')}
-                >
-                </input>
-                <button type="submit" className="formSubmit"> Log In </button>
+                <div className="input-field">
+                  <input
+                    name="username"
+                    type="text"
+                    value={this.state.username}
+                    onChange={this.handleChange('username')}
+                  />
+                  <label for="username">username</label>
+                </div>
+                <div className="input-field">
+                  <input
+                    name="password"
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.handleChange('password')}
+                  />
+                  <label for="password">password</label>
+                </div>
+                <button type="submit" className="formSubmit waves-effect waves-light btn"> Log In </button>
               </form>
             </Modal>
           </NavItem>
