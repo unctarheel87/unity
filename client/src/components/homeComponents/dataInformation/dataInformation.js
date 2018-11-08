@@ -11,16 +11,16 @@ export default () => (
         <div className="iconArea container">
             <Row>
                 <Col s={4}>
-                <i class="large material-icons">access_time</i>
+                <i className="large material-icons">access_time</i>
             <p className="iconText"> Real-time Data </p>
                 </Col>
                 <Col s={4}>
-                <i class="large material-icons">person_pin</i>
+                <i className="large material-icons">person_pin</i>
             <p className="iconText"> Knowledgeable Experts</p>
 
                 </Col>
                 <Col s={4}>
-                <i class="large material-icons">find_in_page</i>
+                <i className="large material-icons">find_in_page</i>
             <p className="iconText"> Personal Watchlist </p>
                 </Col>
             </Row>
