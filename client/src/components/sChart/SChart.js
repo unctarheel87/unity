@@ -49,6 +49,7 @@ class AreaChartWithEdge extends React.Component {
 					xAccessor={xAccessor}
 					displayXAccessor={displayXAccessor}
 					xExtents={xExtents}
+					//xExtents={[new Date(2011, 0, 1), new Date(2018, 0, 2)]}
 				>
 
 					<Chart id={1}

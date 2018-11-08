@@ -8,7 +8,7 @@ const stockSearch = (ticker) => {
     'https://www.alphavantage.co/query?' +
     'function=TIME_SERIES_INTRADAY' + 
     '&symbol=' + ticker +
-    '&interval=5min' + 
+    '&interval=60min' + 
     '&apikey=' + API_KEY +
     '&datatype=csv'
 

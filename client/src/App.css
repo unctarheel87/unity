@@ -33,7 +33,17 @@
   background-color: #21ce99;
 }
 
+.footer-copyright .container{
+  text-align: center;
+}
 
+.col h5{
+  margin:0px;
+}
+
+.col ul {
+  margin-top: 0px;
+}
 
 @keyframes App-logo-spin {
   from {
