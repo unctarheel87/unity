@@ -1,14 +1,19 @@
 const express = require('express');
 const passport = require('passport');
 const User = require('../models/User');
+const Advisor = require('../models/Advisor');
 const router = express.Router();
 
 router.post('/register', function(req, res) {
   User.register(new User({ username : req.body.username }), req.body.password, function(err, user) {
     if (err) console.log(err)
-    passport.authenticate('user-local')(req, res, function () {
-      res.redirect('/');
-    });
+    Advisor.findOneAndUpdate( {_id: req.body.advisor }, {
+      $push: { users: user._id }
+    }, { new: true } ).then(dbAdvisor => {
+      passport.authenticate('user-local')(req, res, function () {
+        res.json('successfully registered');
+      });
+    }).catch(err => console.log(err));
   });
 });
 

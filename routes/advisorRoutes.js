@@ -3,6 +3,15 @@ const passport = require('passport');
 const Advisor = require('../models/Advisor');
 const router = express.Router();
 
+router.get('/advisors', function(req, res) {
+  Advisor.find({})
+  .then(dbAdvisors => {
+    res.json(dbAdvisors);
+  }).catch(err => {
+    console.log(err);
+  })
+})
+
 router.post('/register', function(req, res) {
   Advisor.register(new Advisor({ username : req.body.username }), req.body.password, function(err, user) {
     if (err) console.log(err)

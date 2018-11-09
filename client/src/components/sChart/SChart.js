@@ -41,7 +41,7 @@ class AreaChartWithEdge extends React.Component {
 			
 				<ChartCanvas height={400}
 					ratio={ratio}
-					width={800}
+					width={width}
 					margin={{ left: 70, right: 70, top: 20, bottom: 30 }}
 					type={type}
 					data={data}

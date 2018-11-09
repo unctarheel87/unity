@@ -1,8 +1,20 @@
 .user-dashboard {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   margin: 10px;
   position: relative
+}
+
+.watchlist-container {
+  width: 20%;
+  text-align: center;
+}
+
+.watchlist-border {
+  min-height: 540px;
+  border: 1px solid white;
+  background: rgba(45, 130, 250, 0.1);
+  align-items: center;
 }
 
 .watchlist-chart {
@@ -16,6 +28,14 @@
   right: 7%;
   margin-top: -17%;
   background: rgba(255, 255, 255, 0.8);
+}
+
+.news-feed {
+  width: 50%;
+}
+
+.news-feed h4 {
+  text-align: center;
 }
 
 .watchlist-chart button {
