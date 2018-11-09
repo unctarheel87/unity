@@ -105,7 +105,12 @@ export default class NavBar extends React.Component {
                   <li>
                     <div
                       onClick={() => this.props.handlePageChange("Profile")}>
+                      {this.props.user &&
                       <Link className="link-color" to="/user"> Dashboard </Link>
+                      }
+                      {this.props.advisor &&
+                      <Link className="link-color" to="/advisor"> Dashboard </Link>
+                      }
                     </div>
                   </li>
                   <NavItem onClick={this.props.handleLogout}><div className="link-color"> Sign Out </div> </NavItem>
