@@ -1,6 +1,6 @@
 #home{
   background-image: url('unity.jpg');
-  height: 80vh;
+  height: 70vh;
   position: relative;
   width: 100%;
   margin-bottom: 0;
@@ -16,11 +16,16 @@
   width: 250px;
   height: 62px;
   background-repeat: no-repeat;
-  margin-bottom: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 h3, h4 {
-  margin: 5px;
+  /* margin: 5px; */
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .landing-text {
@@ -31,7 +36,8 @@ h3, h4 {
   flex-wrap: none;
   width: 100%;
   position: absolute;
-  top: 30%;
+  /* top: 30%; */
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: darkslategray;

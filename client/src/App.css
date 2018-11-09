@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  /* Added margins */
+  margin-top:20px;
+  margin-bottom: 20px;
 }
 
 .App-logo {
@@ -43,6 +46,20 @@
 
 .col ul {
   margin-top: 0px;
+}
+/*  */
+strong{
+  font-weight: 800;
+}
+
+.companyInfo td:first-child{
+  width: 150px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.card .card-content{
+  width: 100%;
 }
 
 @keyframes App-logo-spin {

@@ -89,6 +89,7 @@ class Search extends React.Component {
                   onClick={this.handleClickEvent}
                   peers={this.state.peers}
                 />
+                <StockSearchNews stockNews={this.state.stockNews} />
               </div>
               <div className="searchResults">
               {/* <StockSearchHeader logo={this.state.logo} stockInfo={this.state.stockInfo} /> */}
@@ -98,7 +99,7 @@ class Search extends React.Component {
                                   onClick={this.handleAddtoWatchList}/>
                 <ChartComponent stockData={this.state} />
                 <StockSearchInfo stockInfo={this.state.stockInfo} stockPrice={this.state.price} loggedIn={this.loggedIn} />
-                <StockSearchNews stockNews={this.state.stockNews} />
+                
               </div>
             </div>
             
