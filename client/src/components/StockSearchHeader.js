@@ -11,7 +11,7 @@ export default (props) => {
             style={{ width: 40, height: 40, marginLeft: 10 }} />
 
         </h3>
-        <h4 className="stockPrice"> ${props.stockPrice}</h4>
+        <h5 className="stockPrice"> ${props.stockPrice}</h5>
       </div>
     )
   } else {
