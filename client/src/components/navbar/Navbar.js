@@ -48,7 +48,7 @@ export default class NavBar extends React.Component {
   render() {
     return (
 
-      <div className="z-depth-4">
+      <div>
         <Navbar brand={brandLogo}>
           <div className="flexAdjust">
             <span className="selfCenter">
