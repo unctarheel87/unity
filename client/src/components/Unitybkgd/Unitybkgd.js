@@ -18,8 +18,8 @@ export default () => (
     <div id="home">
       <div className="color-overlay"></div>
       <div className="landing-text responsive">
-        <span className="unity-logo hide-on-med-and-down"></span>
         <StyledH3>Where clients, information, and advisors <i>Unite</i></StyledH3>
+        <span className="unity-logo hide-on-med-and-down"></span>
         {/* <StyledH3>Unite</StyledH3> */}
         <SignUpForm />
       </div>
