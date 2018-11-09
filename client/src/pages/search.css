@@ -38,7 +38,8 @@
 
 .search-stockbar-form input {
     width: 100%;
-   
+    text-transform: uppercase;
+    text-align: center;
 }
 
 .search-stockbar-form {
@@ -68,11 +69,16 @@
 .coInfoTitle{
     font-weight: bold;
     float:left;
+   display: flex; 
+   /* width:50%; 
+   float: right; */
 }
 
 .companyInfo {
     display: flex;
-    width:50%;
+    /* width:50%; */
+    width: 100%;
+    margin: 20px;
     float: left;
 }
 

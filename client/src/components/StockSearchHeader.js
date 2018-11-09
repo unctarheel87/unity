@@ -1,4 +1,6 @@
 import React from 'react';
+import { Icon } from 'react-materialize';
+
 
 export default (props) => {
   if (props.logo) {
@@ -11,7 +13,13 @@ export default (props) => {
             style={{ width: 40, height: 40, marginLeft: 10 }} />
 
         </h3>
-        <h5 className="stockPrice"> ${props.stockPrice}</h5>
+        <h4 className="stockPrice"> ${props.stockPrice}              
+          <span><button style={{background: "none", border: "none"}} onClick={props.onClick}>
+            <Icon medium>
+              add_box
+            </Icon></button>
+          </span>
+        </h4>
       </div>
     )
   } else {

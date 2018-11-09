@@ -1,5 +1,6 @@
 .companyinfo {
-  background-color: darkslategray;
+  /* background-color: darkslategray; */
+  background-color: white;
   padding: 30px;
 } 
 
@@ -37,7 +38,7 @@
 }
 
 img {
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 img.responsive-img {

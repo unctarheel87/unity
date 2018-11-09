@@ -5,12 +5,12 @@ import { User, Advisor } from '../../utils/Auth';
 import "./signupForm.css"
 
 const StyledButton = styled(Button)`
-    &&&&&&{
+    &{
       margin-left: 20px;
-      border: 2px solid #008000;
+      border: 1px solid #008000;
       color: #008000;
       background-color: #fff;
-      border-radius: 12px;
+      border-radius: 5px;
     }
     &:hover{
       background: #008000 !important;
