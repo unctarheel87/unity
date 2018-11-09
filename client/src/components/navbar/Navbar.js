@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom"
-import { Button, Navbar, NavItem, Modal } from 'react-materialize'
+import { Button, Navbar, NavItem, Modal, Input } from 'react-materialize'
 import styled from "styled-components";
 import "./navbar.css";
 
@@ -44,7 +44,6 @@ export default class NavBar extends React.Component {
 
   render() {
     return (
-
       <div className="z-depth-4">
         <Navbar brand={brandLogo}>
           <div className="flexAdjust">
@@ -70,23 +69,33 @@ export default class NavBar extends React.Component {
                       header='Log In'
                       trigger={<StyledButton className="logInButton"> Log In</StyledButton>}>
                       <form onSubmit={this.handleSubmit}>
-                        <h4> Username: </h4>
-                        <input
-                          name="username"
-                          type="text"
-                          value={this.state.username}
-                          onChange={this.handleChange('username')}
+                        <Input s={6} 
+                          type='select' 
+                          label="Choose your role" 
+                          onChange={this.props.handleRoleChange}
+                          value={this.props.role}
                         >
-                        </input>
-                        <br></br>
-                        <h4> Password: </h4>
-                        <input
-                          name="password"
-                          type="text"
-                          value={this.state.password}
-                          onChange={this.handleChange('password')}
-                        >
-                        </input>
+                          <option value='user'>User</option>
+                          <option value='advisor'>Advisor</option>
+                        </Input>
+                        <div className="input-field">
+                          <input
+                            name="username"
+                            type="text"
+                            value={this.state.username}
+                            onChange={this.handleChange('username')}
+                          />
+                          <label for="username">username</label>
+                        </div>
+                        <div className="input-field">
+                          <input
+                            name="password"
+                            type="password"
+                            value={this.state.password}
+                            onChange={this.handleChange('password')}
+                          />
+                          <label for="password">password</label>
+                        </div>
                         <StyledButton type="submit" className="formSubmit logInButton modal-action modal-close">Log In</StyledButton>
                       </form>
                     </Modal>
@@ -95,7 +104,7 @@ export default class NavBar extends React.Component {
               ) : (
                   <span>
                     <NavItem>
-                      <div className="link-color" > Hello, Username</div>
+                      <div className="link-color" > Hello, {this.props.user && this.props.user.username}</div>
                     </NavItem>
                     <li>
                       <div

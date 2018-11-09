@@ -29,8 +29,6 @@ class App extends Component {
   componentDidMount() {
     this.getUser()
     this.getAdvisor()
-    API.getCompanyInfo('fb');
-    API.getCompanyNews('fb');
   }
   getUser = () => User.getUser()
     .then(response => {
@@ -123,6 +121,7 @@ class App extends Component {
             userExists={this.state.loggedIn}
             handleRoleChange={this.handleRoleChange}
             role={this.state.role}
+            user={this.state.user}
           />
           {this.state.loggedIn && (
             <div className="user-dash">
