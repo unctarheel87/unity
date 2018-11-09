@@ -1,10 +1,18 @@
 import React from "react";
+import { Card } from "react-materialize";
+import styled from "styled-components";
 import "./advisorDash.css";
-import AdvisorNav from "../components/advisorComponents/advNavigation"
-import AdvisorHome from "../components/advisorComponents/advisorHome"
-import ClientList from "../components/advisorComponents/clientList"
-import Messages from "../components/advisorComponents/messages"
-import Preferences from "../components/advisorComponents/preferences"
+import AdvisorNav from "../components/advisorComponents/advNavigation";
+import AdvisorHome from "../components/advisorComponents/advisorHome";
+import ClientList from "../components/advisorComponents/clientList";
+import Messages from "../components/advisorComponents/messages";
+import Preferences from "../components/advisorComponents/preferences";
+
+const StyledCard = styled(Card)`
+      &&&&&&{
+       
+      }
+`
 
 export default class Profile extends React.Component {
   state = {
@@ -33,9 +41,15 @@ export default class Profile extends React.Component {
     return (
       <div>
         <div className="advStructure">
-          <AdvisorNav handleTab={this.handleTab} />
-          <div className="container">
-            {this.renderPage()}
+          <div className="advNavComp">
+            <AdvisorNav handleTab={this.handleTab} />
+          </div>
+          <div className=" mainWindow">
+            <div className="container">
+              <StyledCard>
+                {this.renderPage()}
+              </StyledCard>
+            </div>
           </div>
         </div>
       </div >

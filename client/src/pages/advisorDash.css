@@ -1,4 +1,22 @@
-.advStructure{
+.mainWindow{
+  background-image: linear-gradient(to top left, #20688a, #90d6f7);
+  width: 100%;
+  z-index: -1;
+  height: 100vh;
+  padding-top: 50px;
+  padding-left: 170px;
+}
+
+@media screen and (max-width:600px){
+  .advStructure{
     display: flex;
-    flex-flow: row;
+    flex-flow: column;
+  }
+.mainWindow{
+  background-image: linear-gradient(to top left, white, white);
+  width: 100%;
+  z-index: -1;
+  padding: 0;
+  margin-top: 80px;
+  }
 }

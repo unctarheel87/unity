@@ -141,7 +141,6 @@ class App extends Component {
               {/* only here for testing */}
               <Route exact path="/" component={Home} />
               <Route path="/search" component={Search} />
-              <br></br>
               <Footer />
             </div>
           )}
