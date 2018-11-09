@@ -1,11 +1,12 @@
 import React from 'react';
 import StockSearchBar from '../stockSearchBar';
 import StockSearchSuggestions from '../StockSearchSuggestions';
+import "./index.css"
 
 function SearchSideNav(props) {
 
     return  (
-      <div>
+      <div className="sideNavFlex">
         <StockSearchBar value={props.value}
           onChange={props.onChange}
           onClick={props.onClick}
