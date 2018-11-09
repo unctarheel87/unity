@@ -47,80 +47,79 @@ export default class NavBar extends React.Component {
 
   render() {
     return (
-        <Navbar brand={brandLogo}>
-          <div className="flexAdjust">
-            <span className="selfCenter">
+      <Navbar brand={brandLogo}>
+        <div className="flexAdjust">
+          <span className="selfCenter">
+            <li>
+              <div
+                onClick={() => this.props.handlePageChange("home")}>
+                <Link className="link-color" to="/"> Home </Link>
+              </div>
+            </li>
+            <li className="centerMargin">
+              <div
+                onClick={() => this.props.handlePageChange("Search")}>
+                <Link className="link-color" to="/search"> Search </Link>
+              </div>
+            </li>
+          </span>
+          <span className="selfEnd">
+            {!this.props.userExists ? (
               <li>
-                <div
-                  onClick={() => this.props.handlePageChange("home")}>
-                  <Link className="link-color" to="/"> Home </Link>
-                </div>
-              </li>
-              <li className="centerMargin">
-                <div
-                  onClick={() => this.props.handlePageChange("Search")}>
-                  <Link className="link-color" to="/search"> Search </Link>
-                </div>
-              </li>
-            </span>
-            <span className="selfEnd">
-              {!this.props.userExists ? (
-                <li>
-                  <div>
-                    <Modal
-                      header='Log In'
-                      trigger={<StyledButton className="logInButton"> Log In</StyledButton>}>
-                      <form onSubmit={this.handleSubmit}>
-                        <Input s={6} 
-                          type='select' 
-                          label="Choose your role" 
-                          onChange={this.props.handleRoleChange}
-                          value={this.props.role}
-                        >
-                          <option value='user'>User</option>
-                          <option value='advisor'>Advisor</option>
-                        </Input>
-                        <div className="input-field">
-                          <input
-                            name="username"
-                            type="text"
-                            value={this.state.username}
-                            onChange={this.handleChange('username')}
-                          />
-                          <label for="username">username</label>
-                        </div>
-                        <div className="input-field">
-                          <input
-                            name="password"
-                            type="password"
-                            value={this.state.password}
-                            onChange={this.handleChange('password')}
-                          />
-                          <label for="password">password</label>
-                        </div>
-                        <StyledButton type="submit" className="formSubmit logInButton modal-action modal-close">Log In</StyledButton>
-                      </form>
-                    </Modal>
-                  </div>
-                </li>
-              ) : (
-                  <span>
-                    <NavItem>
-                      <div className="link-color" > Hello, {this.props.user && this.props.user.username}</div>
-                    </NavItem>
-                    <li>
-                      <div
-                        onClick={() => this.props.handlePageChange("Profile")}>
-                        <Link className="link-color" to="/user"> Dashboard </Link>
+                <div>
+                  <Modal
+                    header='Log In'
+                    trigger={<StyledButton className="logInButton"> Log In</StyledButton>}>
+                    <form onSubmit={this.handleSubmit}>
+                      <Input s={6} 
+                        type='select' 
+                        label="Choose your role" 
+                        onChange={this.props.handleRoleChange}
+                        value={this.props.role}
+                      >
+                        <option value='user'>User</option>
+                        <option value='advisor'>Advisor</option>
+                      </Input>
+                      <div className="input-field">
+                        <input
+                          name="username"
+                          type="text"
+                          value={this.state.username}
+                          onChange={this.handleChange('username')}
+                        />
+                        <label for="username">username</label>
                       </div>
-                    </li>
-                    <NavItem onClick={this.props.handleLogout}><div className="link-color"> Sign Out </div> </NavItem>
-                  </span>
-                )}
-            </span>
-          </div>
-        </Navbar>
-      </div >
+                      <div className="input-field">
+                        <input
+                          name="password"
+                          type="password"
+                          value={this.state.password}
+                          onChange={this.handleChange('password')}
+                        />
+                        <label for="password">password</label>
+                      </div>
+                      <StyledButton type="submit" className="formSubmit logInButton modal-action modal-close">Log In</StyledButton>
+                    </form>
+                  </Modal>
+                </div>
+              </li>
+            ) : (
+                <span>
+                  <NavItem>
+                    <div className="link-color" > Hello, {this.props.user && this.props.user.username}</div>
+                  </NavItem>
+                  <li>
+                    <div
+                      onClick={() => this.props.handlePageChange("Profile")}>
+                      <Link className="link-color" to="/user"> Dashboard </Link>
+                    </div>
+                  </li>
+                  <NavItem onClick={this.props.handleLogout}><div className="link-color"> Sign Out </div> </NavItem>
+                </span>
+              )}
+          </span>
+        </div>
+      </Navbar>
     );
   }
 }
