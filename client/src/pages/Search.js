@@ -35,7 +35,7 @@ class Search extends React.Component {
   handleClickEvent = event => {
     if (event) event.preventDefault();
     if(this.state.value === '') {
-      alert("please enter in symbol");
+      alert("Enter Valid Symbol");
       return;
     }
     this.setState({ data: "loading" });
@@ -83,7 +83,6 @@ class Search extends React.Component {
     if (this.state.peers.length !== 0) {
       return (
         <div className="App">
-            {/* Rhummel and Brendan arrange these components */}
             <div className="searchContainer">
               <div className="searchSideNav">
                 <SearchSideNav 
@@ -106,9 +105,6 @@ class Search extends React.Component {
               </div>
             </div>
           </div>
-
-        </div>
-
       )
     } else {
       return (
