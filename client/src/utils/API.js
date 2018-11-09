@@ -54,10 +54,8 @@ export default {
       .then(response => console.log(response))
       .catch(err => console.log(err))
   },
-  getWatchList: () => {
-    axios.get('/stocks')
-    .then(response => console.log(response))
-    .catch(err => console.log(err))
+  getAdvisors: () => {
+    return axios.get('./advisor/advisors')
   },
   getCompanyPrice: (ticker) => {
     return axios.get('https://api.iextrading.com/1.0/stock/' + ticker + '/price')

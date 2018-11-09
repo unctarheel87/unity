@@ -11,8 +11,6 @@ const StyledH3 = styled.h3`
         color: #fff;
       }
 `
-
-
 export default () => (
   <div>
     <div id="home">
