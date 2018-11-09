@@ -54,11 +54,17 @@ export default {
       .then(response => console.log(response))
       .catch(err => console.log(err))
   },
+  deleteStock: (id) => {
+    axios.delete('/stocks/' + id)
+    .then(response => console.log(response))
+    .catch(err => console.log(err))
+  },
   getWatchList: () => {
     axios.get('/stocks')
     .then(response => console.log(response))
     .catch(err => console.log(err))
   },
+  //api requests to https://www.iextrading.com
   getCompanyPrice: (ticker) => {
     return axios.get('https://api.iextrading.com/1.0/stock/' + ticker + '/price')
   },
@@ -66,7 +72,7 @@ export default {
     return axios.get('https://api.iextrading.com/1.0/stock/' + ticker + '/company')
   },
   getCompanyNews: (ticker) => {
-    return axios.get('https://api.iextrading.com/1.0/stock/' + ticker + '/news/last/3')
+    return axios.get('https://api.iextrading.com/1.0/stock/' + ticker + '/news/last/2')
   },
   getCompanyPeers: (ticker) => {
     return axios.get('https://api.iextrading.com/1.0/stock/' + ticker + '/peers')

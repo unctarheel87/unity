@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './watchListItem.css';
 import ChartComponent from '../ChartComponent';
-import API from '../../utils/API';
+import API from '../../utils/API.js';
 
 export default class WatchListItem extends Component {
   state = {
@@ -17,17 +17,23 @@ export default class WatchListItem extends Component {
   handleClick = () => {
     this.setState({ hasClicked: this.state.hasClicked ? false : true })
   }
+  removeWatchListItem = (e) => {
+    e.stopPropagation();
+    let id = this.props.stock._id;
+    API.deleteStock(id);
+  }
   getStockData = (term) => API.getData(term).then(data => {
     this.setState({ data })
   })
   render() {
     return (
-      <div>
+      <div className="watchlist-item-card z-depth-2">
         <li className="watchlist-item"
             onClick={this.handleClick} 
         >
           <i className="material-icons">show_chart</i>
           <h5>{this.props.stock.ticker}</h5>
+          <button onClick={this.removeWatchListItem}>X</button>
         </li>
         {this.state.hasClicked &&
           <div className="watchlist-chart">
