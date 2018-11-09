@@ -6,14 +6,15 @@ import "./footer.css";
 export default () => (
   <div className="footer">
     <Footer copyrights="&copy; 2018 Unity"
-      moreLinks={
-        <a className="grey-text text-lighten-4 right" href="https://github.com/unctarheel87/unity.git">Github Link</a>
-      }
+      // moreLinks={
+      //   <a className="grey-text text-lighten-4 right" href="https://github.com/unctarheel87/unity.git">Github Link</a>
+      // }
       links={
         <ul>
           <li><Link to="/" className="grey-text text-lighten-3" href="#!">Home</Link></li>
           <li><Link to="/search" className="grey-text text-lighten-3" href="#!">Search</Link></li>
           <li><Link to="/" className="grey-text text-lighten-3" href="#!">Our Advisors</Link></li>
+          <li><Link to="/" className="grey-text text-lighten-3" href="https://github.com/unctarheel87/unity.git">Github Link</Link></li>
         </ul>
       }
       className='example'

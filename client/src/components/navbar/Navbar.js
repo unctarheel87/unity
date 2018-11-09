@@ -7,12 +7,13 @@ import "./navbar.css";
 import logo from "../Unitybkgd/unity-logo-b2.png";
 
 const StyledButton = styled(Button)`
-    &&&&&&{
+    &{
       margin-left: 20px;
-      border: 2px solid #336780;
+      border: 1px solid #336780;
       color: #336780;
       background-color: #fff;
-      border-radius: 12px;
+      border-radius: 5px;
+      // border-radius: 12px;
     }
     &:hover{
       background: #336780;
@@ -21,7 +22,9 @@ const StyledButton = styled(Button)`
 `
 
 
-const brandLogo = <img src={logo} alt="logo-brand" className="navLogo hide-on-med-and-up"></img>
+//const brandLogo = <img src={logo} alt="logo-brand" className="navLogo hide-on-med-and-up"></img>
+const brandLogo = <img src={logo} alt="logo-brand" className="navLogo"></img>
+
 
 // Need to add conditional...if user is logged in load dropdownB, if not, load A
 export default class NavBar extends React.Component {
@@ -44,7 +47,6 @@ export default class NavBar extends React.Component {
 
   render() {
     return (
-      <div className="z-depth-4">
         <Navbar brand={brandLogo}>
           <div className="flexAdjust">
             <span className="selfCenter">
