@@ -1,4 +1,5 @@
 footer.page-footer {
     /* background-color: darkslategrey; */
     background-color: #336780;
+    z-index: 20;
 }

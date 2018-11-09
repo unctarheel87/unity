@@ -142,7 +142,6 @@ class App extends Component {
               <Route path="/advisor" component={() => <AdvisorDash />} />
               <Route exact path="/" component={Home} />
               <Route path="/search" component={Search} />
-              <br></br>
               <Footer />
             </div>
           )}
