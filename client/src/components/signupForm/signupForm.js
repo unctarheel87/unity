@@ -8,12 +8,12 @@ const StyledButton = styled(Button)`
     &{
       margin-left: 20px;
       border: 1px solid #008000;
-      color: #008000;
-      background-color: #fff;
+      color: #fff;
+      background-color: #008000;
       border-radius: 5px;
     }
     &:hover{
-      background: #008000 !important;
+      background: #025202 !important;
       color: #fff !important;
     }
 `

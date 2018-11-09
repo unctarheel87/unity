@@ -138,6 +138,8 @@ class App extends Component {
           )}
           {!this.state.loggedIn && (
             <div>
+              {/* only here for testing */}
+              <Route path="/advisor" component={() => <AdvisorDash />} />
               <Route exact path="/" component={Home} />
               <Route path="/search" component={Search} />
               <br></br>

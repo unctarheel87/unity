@@ -1,0 +1,4 @@
+.advStructure{
+    display: flex;
+    flex-flow: row;
+}
