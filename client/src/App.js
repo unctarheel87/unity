@@ -29,8 +29,6 @@ class App extends Component {
   componentDidMount() {
     this.getUser()
     this.getAdvisor()
-    API.getCompanyInfo('fb');
-    API.getCompanyNews('fb');
   }
   getUser = () => User.getUser()
     .then(response => {
@@ -120,9 +118,10 @@ class App extends Component {
             currentPage={this.state.currentPage}
             handleLogin={this.handleLogin}
             handleLogout={this.handleLogout}
-            userExists={this.state.loggedIn}
             handleRoleChange={this.handleRoleChange}
             role={this.state.role}
+            user={this.state.user}
+            advisor={this.state.advisor}
           />
           {this.state.loggedIn && (
             <div className="user-dash">
@@ -139,6 +138,7 @@ class App extends Component {
           )}
           {!this.state.loggedIn && (
             <div>
+              {/* only here for testing */}
               <Route exact path="/" component={Home} />
               <Route path="/search" component={Search} />
               <br></br>

@@ -8,7 +8,7 @@ const stockSearch = (ticker) => {
     'https://www.alphavantage.co/query?' +
     'function=TIME_SERIES_INTRADAY' + 
     '&symbol=' + ticker +
-    '&interval=5min' + 
+    '&interval=60min' + 
     '&apikey=' + API_KEY +
     '&datatype=csv'
 
@@ -63,6 +63,9 @@ export default {
     axios.get('/stocks')
     .then(response => console.log(response))
     .catch(err => console.log(err))
+  },
+  getAdvisors: () => {
+    return axios.get('./advisor/advisors')
   },
   //api requests to https://www.iextrading.com
   getCompanyPrice: (ticker) => {

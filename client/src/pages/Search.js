@@ -4,6 +4,8 @@ import StockSearchInfo from '../components/StockSearchInfo';
 import StockSearchNews from '../components/StockSearchNews';
 import SearchSideNav from '../components/searchSideNav';
 import StockSearchHeader from '../components/StockSearchHeader';
+import StockSearchBar from '../components/stockSearchBar';
+
 import ChartComponent from '../components/ChartComponent';
 import "./search.css";
 
@@ -33,7 +35,7 @@ class Search extends React.Component {
   handleClickEvent = event => {
     if (event) event.preventDefault();
     if(this.state.value === '') {
-      alert("please enter in symbol");
+      alert("Enter Valid Symbol");
       return;
     }
     this.setState({ data: "loading" });
@@ -78,9 +80,9 @@ class Search extends React.Component {
       .catch(error => console.log(error))
   }
   render() {
+    if (this.state.peers.length !== 0) {
       return (
         <div className="App">
-            {/* Rhummel and Brendan arrange these components */}
             <div className="searchContainer">
               <div className="searchSideNav">
                 <SearchSideNav 
@@ -89,6 +91,7 @@ class Search extends React.Component {
                   onClick={this.handleClickEvent}
                   peers={this.state.peers}
                 />
+                <StockSearchNews stockNews={this.state.stockNews} />
               </div>
               <div className="searchResults">
               {/* <StockSearchHeader logo={this.state.logo} stockInfo={this.state.stockInfo} /> */}
@@ -98,13 +101,22 @@ class Search extends React.Component {
                                   onClick={this.handleAddtoWatchList}/>
                 <ChartComponent stockData={this.state} />
                 <StockSearchInfo stockInfo={this.state.stockInfo} stockPrice={this.state.price} loggedIn={this.loggedIn} />
-                <StockSearchNews stockNews={this.state.stockNews} />
+                
               </div>
             </div>
-            
           </div>
-      
       )
+    } else {
+      return (
+        <div className="initialSearch" >
+          <StockSearchBar
+            value={this.state.value}
+            onChange={this.handleChange}
+            onClick={this.handleClickEvent} />
+        </div>
+
+      )
+    }
   }
 };
 

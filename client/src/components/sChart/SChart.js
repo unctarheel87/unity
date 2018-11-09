@@ -41,7 +41,7 @@ class AreaChartWithEdge extends React.Component {
 			
 				<ChartCanvas height={400}
 					ratio={ratio}
-					width={800}
+					width={width}
 					margin={{ left: 70, right: 70, top: 20, bottom: 30 }}
 					type={type}
 					data={data}
@@ -49,6 +49,7 @@ class AreaChartWithEdge extends React.Component {
 					xAccessor={xAccessor}
 					displayXAccessor={displayXAccessor}
 					xExtents={xExtents}
+					//xExtents={[new Date(2011, 0, 1), new Date(2018, 0, 2)]}
 				>
 
 					<Chart id={1}

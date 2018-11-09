@@ -7,20 +7,22 @@ export default class ChartComponent extends React.Component {
   render() {
     if (this.props.stockData.data === "loading") {
       return (
-      <Row>
-        <Col s={12}>
-          <ProgressBar />
-        </Col>
-      </Row>
+        <Row>
+          <Col s={12}>
+            <ProgressBar />
+          </Col>
+        </Row>
       )
     }
     if (this.props.stockData.data === null) {
       return <div><br></br></div>
     }
     return (
-      <TypeChooser>
-        {type => <Chart type={type} data={this.props.stockData.data} />}
-      </TypeChooser>
+      
+        <TypeChooser>
+          {type => <Chart type={type} data={this.props.stockData.data} />}
+        </TypeChooser>
+      
     )
   }
 }
