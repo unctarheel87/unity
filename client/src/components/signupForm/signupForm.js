@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import styled from "styled-components";
 import { Modal, Button, Input } from 'react-materialize'
 import { User, Advisor } from '../../utils/Auth';
+import API from '../../utils/API'
 import "./signupForm.css"
 
 const StyledButton = styled(Button)`
@@ -22,7 +23,12 @@ export default class signupForm extends Component {
   state = {
     username: '',
     password: '',
+    chosenAdvisor: '',
+    advisors: [],
     role: 'user',
+  }
+  componentDidMount() {
+    this.getAdvisors();
   }
   handleChange = name => event => {
     this.setState({
@@ -34,14 +40,15 @@ export default class signupForm extends Component {
     if(this.state.role === 'user') {
       User.register({
         username: this.state.username,
-        password: this.state.password
+        password: this.state.password,
+        advisor: this.state.chosenAdvisor
       })
         .then(response => console.log(response))
         .catch(err => console.log(err))
     } else if (this.state.role === 'advisor') {
       Advisor.register({
         username: this.state.username,
-        password: this.state.password
+        password: this.state.password,
       })
         .then(response => console.log(response))
         .catch(err => console.log(err))
@@ -49,6 +56,11 @@ export default class signupForm extends Component {
   }
   handleRoleChange = event => {
     this.setState({ role: event.target.value })
+  }
+  getAdvisors = () => {
+    API.getAdvisors()
+      .then(response => this.setState({advisors: response.data}))
+      .catch(err => console.log(err))
   }
   render() {
     return (
@@ -68,24 +80,32 @@ export default class signupForm extends Component {
               <option value='user'>User</option>
               <option value='advisor'>Advisor</option>
             </Input>
-            <div className="input-field">
-            <input
+            {this.state.role === "user" && this.state.advisors &&
+              <Input s={6} 
+                type='select' 
+                label="Choose your advisor"
+                value={this.state.chosenAdvisor}
+                onChange={this.handleChange('chosenAdvisor')} 
+              >
+              {this.state.advisors.map(advisor => (
+                <option value={advisor._id}>{advisor.username}</option>
+              ))}
+              </Input>
+            }
+            <Input
+              label="username"
               name="username"
               type="text"
               value={this.state.username}
               onChange={this.handleChange('username')}
             />
-              <label for="username">username</label>
-            </div>
-            <div className="input-field">
-            <input
+            <Input
+              label="password"
               name="password"
               type="password"
               value={this.state.password}
               onChange={this.handleChange('password')}
             />
-              <label for="password">password</label>
-            </div>
             <button type="submit" className="formSubmit waves-effect waves-light btn"> Sign Up </button>
           </form>
         </Modal>

@@ -20,8 +20,6 @@ const StyledButton = styled(Button)`
       color: #fff;
     }
 `
-
-
 //const brandLogo = <img src={logo} alt="logo-brand" className="navLogo hide-on-med-and-up"></img>
 const brandLogo = <img src={logo} alt="logo-brand" className="navLogo"></img>
 
@@ -64,7 +62,7 @@ export default class NavBar extends React.Component {
             </li>
           </span>
           <span className="selfEnd">
-            {!this.props.userExists ? (
+            {!this.props.user && !this.props.advisor ? (
               <li>
                 <div>
                   <Modal
@@ -80,24 +78,20 @@ export default class NavBar extends React.Component {
                         <option value='user'>User</option>
                         <option value='advisor'>Advisor</option>
                       </Input>
-                      <div className="input-field">
-                        <input
+                      <Input
+                          label="username"
                           name="username"
                           type="text"
                           value={this.state.username}
                           onChange={this.handleChange('username')}
                         />
-                        <label for="username">username</label>
-                      </div>
-                      <div className="input-field">
-                        <input
+                      <Input
+                          label="password"
                           name="password"
                           type="password"
                           value={this.state.password}
                           onChange={this.handleChange('password')}
                         />
-                        <label for="password">password</label>
-                      </div>
                       <StyledButton type="submit" className="formSubmit logInButton modal-action modal-close">Log In</StyledButton>
                     </form>
                   </Modal>
@@ -106,7 +100,7 @@ export default class NavBar extends React.Component {
             ) : (
                 <span>
                   <NavItem>
-                    <div className="link-color" > Hello, {this.props.user && this.props.user.username}</div>
+                    <div className="link-color" > Hello, {(this.props.user && this.props.user.username) || (this.props.advisor && this.props.advisor.username)}</div>
                   </NavItem>
                   <li>
                     <div
