@@ -18,6 +18,10 @@ const UserSchema = new Schema({
     type: String,
     default: 'type1'
   },
+  messages: [{
+    type: Schema.Types.ObjectId,
+    ref: "Message"
+  }],
   stocks: [{
     type: Schema.Types.ObjectId,
     ref: "Stock"

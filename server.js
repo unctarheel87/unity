@@ -7,6 +7,7 @@ const mongoose = require("mongoose");
 const userRoutes = require('./routes/userRoutes');
 const stockRoutes = require('./routes/stockRoutes');
 const advisorRoutes = require('./routes/advisorRoutes');
+const messageRoutes = require('./routes/messageRoutes');
 
 const app = express();
 // Define middleware here
@@ -28,6 +29,7 @@ app.use(passport.session());
 app.use('/client', userRoutes)
 app.use('/stocks', stockRoutes)
 app.use('/advisor', advisorRoutes)
+app.use('/messages', messageRoutes)
 
 //configure passport User
 const User = require('./models/User');

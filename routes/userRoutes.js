@@ -20,7 +20,7 @@ router.post('/register', function(req, res) {
 router.get('/user', function(req, res) {
   if(req.user) {
     User.findById(req.user.id)
-    .populate('stocks')
+    .populate('messages stocks')
     .then(dbUser => {
       console.log(dbUser)
       res.json({user: dbUser} );

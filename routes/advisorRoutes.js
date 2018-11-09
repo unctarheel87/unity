@@ -24,7 +24,17 @@ router.post('/register', function(req, res) {
 router.get('/user', function(req, res) {
   if(req.user) {
     Advisor.findById(req.user.id)
-    .populate('users')
+    .populate({
+      path: 'users',
+      model: 'User',
+      populate: [{
+        path: 'messages',
+        model: 'Message'
+      }, {
+        path: 'stocks',
+        model: 'Stock'
+      }]
+    })
     .then(dbUser => {
       console.log(dbUser)
       res.json({user: dbUser} );

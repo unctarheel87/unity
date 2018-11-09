@@ -19,10 +19,10 @@ export default class Profile extends React.Component {
     if (this.state.currentTab === "home") {
       return <AdvisorHome />
     } else if (this.state.currentTab === "clients") {
-      return <ClientList />
+      return <ClientList users={this.props.advisor.users}/>
     }
     else if (this.state.currentTab === "messages") {
-      return <Messages />
+      return <Messages users={this.props.advisor.users}/>
     }
     else if (this.state.currentTab === "preferences") {
       return <Preferences />

@@ -132,7 +132,7 @@ class App extends Component {
           )}
           {this.state.advisorLoggedIn && (
             <div className="advisor-dash">
-              <Route path="/advisor" component={() => <AdvisorDash />} />
+              <Route path="/advisor" component={() => <AdvisorDash advisor={this.state.advisor} />} />
               <Route path="/search" component={() => <Search />} />
             </div>
           )}

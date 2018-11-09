@@ -50,12 +50,17 @@ export default {
     return data
   },
   insertTicker: (ticker) => {
-    axios.post('/stocks', {ticker: ticker})
+    axios.post('/stocks', { ticker })
       .then(response => console.log(response))
       .catch(err => console.log(err))
   },
   deleteStock: (id) => {
     axios.delete('/stocks/' + id)
+    .then(response => console.log(response))
+    .catch(err => console.log(err))
+  },
+  createMsg: (message, userId) => {
+    axios.post('/messages', { message, userId })
     .then(response => console.log(response))
     .catch(err => console.log(err))
   },
