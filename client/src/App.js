@@ -8,7 +8,7 @@ import { User, Advisor } from './utils/Auth';
 //Pages
 import Search from "./pages/Search"
 import Home from "./pages/Home";
-import UserDashboard from './components/userDashboard';
+import UserDashboard from './pages/userDashboard';
 import AdvisorDash from './pages/AdvisorDash';
 import API from './utils/API';
 
