@@ -1,3 +1,4 @@
+/* global $ */
 import React, { Component } from "react";
 import styled from "styled-components";
 import { Modal, Button, Input } from 'react-materialize'
@@ -43,14 +44,20 @@ export default class signupForm extends Component {
         password: this.state.password,
         advisor: this.state.chosenAdvisor
       })
-        .then(response => console.log(response))
+        .then(response => {
+          console.log(response)
+          $(".modal open").modal('close')
+        })
         .catch(err => console.log(err))
     } else if (this.state.role === 'advisor') {
       Advisor.register({
         username: this.state.username,
         password: this.state.password,
       })
-        .then(response => console.log(response))
+        .then(response => {
+          console.log(response)
+          $(".open").modal('close')
+        })
         .catch(err => console.log(err))
     } 
   }
@@ -70,7 +77,8 @@ export default class signupForm extends Component {
           trigger={<StyledButton >Sign Up Today</StyledButton>}
         >
           <form onSubmit={this.handleSubmit}>
-            <Input s={6} 
+            <Input s={6}
+              required 
               type='select' 
               label="Sign up as:" 
               onChange={this.handleRoleChange}
@@ -82,17 +90,20 @@ export default class signupForm extends Component {
             </Input>
             {this.state.role === "user" && this.state.advisors &&
               <Input s={6} 
+                required 
                 type='select' 
                 label="Choose your advisor"
                 value={this.state.chosenAdvisor}
                 onChange={this.handleChange('chosenAdvisor')} 
               >
+              <option></option>
               {this.state.advisors.map(advisor => (
                 <option value={advisor._id}>{advisor.username}</option>
               ))}
               </Input>
             }
             <Input
+              required
               label="username"
               name="username"
               type="text"
@@ -100,6 +111,7 @@ export default class signupForm extends Component {
               onChange={this.handleChange('username')}
             />
             <Input
+              required
               label="password"
               name="password"
               type="password"
