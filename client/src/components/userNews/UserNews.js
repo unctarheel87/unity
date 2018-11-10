@@ -12,7 +12,6 @@ export default class UserNews extends Component {
   getStockNews = (ticker) => API.getCompanyNews(ticker)
     .then(response => {
     this.setState({ news: response.data })
-    console.log(this.state)
     })
     .catch(err => console.log(err));
   render() {

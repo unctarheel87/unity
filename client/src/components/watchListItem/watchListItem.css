@@ -15,11 +15,17 @@
 .watchlist-item-card {
   max-width: 200px;
   margin: 0 auto;
+  position: relative;
 }
 
 .watchlist-item:hover {
-  background-color: rgba(0, 253, 106, 0.315);
+  background-color: rgba(27, 56, 70, 0.6);
+  color: white;
   cursor: pointer;
+}
+
+.watchlist-item:hover #watchlist-items-action {
+  color: white;
 }
 
 h5 {
@@ -31,9 +37,9 @@ h5 {
   border: none;
   color: white;
   font-size: 18px;
-  position: relative;
-  bottom: 16px;
-  left: 64px;
+  position: absolute;
+  left: 176px;
+  bottom: 28px;
 }
 
 .remove-btn:hover {

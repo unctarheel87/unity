@@ -21,6 +21,7 @@ export default class WatchListItem extends Component {
     e.stopPropagation();
     let id = this.props.stock._id;
     API.deleteStock(id);
+    this.props.getUser();
   }
   getStockData = (term) => API.getData(term).then(data => {
     this.setState({ data })
@@ -31,7 +32,7 @@ export default class WatchListItem extends Component {
         <li className="watchlist-item"
             onClick={this.handleClick} 
         >
-          <i className="material-icons">show_chart</i>
+          <i className="material-icons" id="watchlist-items-action">show_chart</i>
           <h5>{this.props.stock.ticker}</h5>
           <button className="remove-btn" onClick={this.removeWatchListItem}>X</button>
         </li>

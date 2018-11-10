@@ -1,11 +1,13 @@
 .user-dash-nav {
   display: flex;
   flex-direction: row;
+  background-image: linear-gradient(to top left, #20688a, #90d6f7);
 }
 
 .user-dash-nav p {
   font-size: 32px;
   margin: 5px 10px 0 10px;
+  color: white;
 }
 
 .user-dash-nav-name {
@@ -15,8 +17,9 @@
 .user-dashboard {
   display: flex;
   justify-content: space-around;
-  margin: 10px;
-  position: relative
+  position: relative;
+  background-image: linear-gradient(to top left, #20688a, #90d6f7);
+  padding-right: 80px;
 }
 
 .watchlist-container {
@@ -26,8 +29,8 @@
 
 .watchlist-border {
   min-height: 540px;
-  border: 1px solid white;
-  background: rgba(45, 130, 250, 0.1);
+  border: none;
+  background: none;
   align-items: center;
 }
 
@@ -48,8 +51,10 @@
   width: 70%;
 }
 
-.news-feed h4 {
+.user-dashboard h4 {
   text-align: center;
+  color: white;
+  font-weight: 500;
 }
 
 .watchlist-chart button {

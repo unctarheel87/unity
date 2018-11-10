@@ -1,0 +1,9 @@
+.user-messages-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.messages-display p {
+  font-size: 12px;
+}
