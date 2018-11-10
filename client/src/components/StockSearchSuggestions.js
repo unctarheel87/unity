@@ -4,7 +4,7 @@ import {Card} from "react-materialize";
 export default (props) => {
   const peer = props.peers.map(peer => {
     return (
-     <li><a class="btn-flat" href="/search">{peer}</a></li>
+     <li><button class="btn-flat" onClick={() => props.shortcutClick(peer)}>{peer}</button></li>
     )
   })
   return (

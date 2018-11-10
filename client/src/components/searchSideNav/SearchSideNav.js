@@ -11,7 +11,7 @@ function SearchSideNav(props) {
           onChange={props.onChange}
           onClick={props.onClick}
         />
-        <StockSearchSuggestions peers={props.peers} />
+        <StockSearchSuggestions peers={props.peers} shortcutClick={props.shortcutClick}/>
       </div>
       
     );

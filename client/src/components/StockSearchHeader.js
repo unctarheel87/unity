@@ -15,7 +15,7 @@ export default (props) => {
         </h3>
         <h4 className="stockPrice"> ${props.stockPrice}              
           <span><button style={{background: "none", border: "none"}} onClick={props.onClick}>
-            <Icon medium>
+            <Icon medium className="add-icon" >
               add_box
             </Icon></button>
           </span>

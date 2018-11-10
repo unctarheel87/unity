@@ -5,7 +5,7 @@ import StockSearchNews from '../components/StockSearchNews';
 import SearchSideNav from '../components/searchSideNav';
 import StockSearchHeader from '../components/StockSearchHeader';
 import StockSearchBar from '../components/stockSearchBar';
-
+import {ProgressBar, Row, Col}  from 'react-materialize'
 import ChartComponent from '../components/ChartComponent';
 import "./search.css";
 
@@ -32,6 +32,12 @@ class Search extends React.Component {
       value: event.target.value
     });
   }
+  handleShortcutClick = async companyVal => {
+    await this.setState({ value: companyVal })
+
+    this.handleClick()
+
+   }
   handleClickEvent = event => {
     if (event) event.preventDefault();
     if(this.state.value === '') {
@@ -80,7 +86,7 @@ class Search extends React.Component {
       .catch(error => console.log(error))
   }
   render() {
-    if (this.state.peers.length !== 0) {
+    if (this.state.stockInfo.length !== 0) {
       return (
         <div className="App">
             <div className="searchContainer">
@@ -90,6 +96,7 @@ class Search extends React.Component {
                   onChange={this.handleChange}
                   onClick={this.handleClickEvent}
                   peers={this.state.peers}
+                  shortcutClick={this.handleShortcutClick}
                 />
                 <StockSearchNews stockNews={this.state.stockNews} />
               </div>
@@ -107,12 +114,19 @@ class Search extends React.Component {
           </div>
       )
     } else {
-      return (
+     return (
         <div className="initialSearch" >
           <StockSearchBar
             value={this.state.value}
             onChange={this.handleChange}
             onClick={this.handleClickEvent} />
+          {this.state.data === "loading" ? (
+          <Row>
+            <Col s={12}>
+              <ProgressBar />
+            </Col>
+          </Row>
+          ) : null}
         </div>
 
       )
