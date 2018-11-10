@@ -9,7 +9,6 @@ nav{
   background-color: #fff;
   padding: 0 30px;
   margin: 0 auto;
-  
   position: fixed;
   z-index: 99999999;
 }
@@ -17,7 +16,6 @@ nav{
 .flexAdjust{
   display: flex;
   justify-content: flex-end;
-  /* justify-content: space-around; */
 }
 .selfCenter{
   justify-self: center;
@@ -28,15 +26,9 @@ nav{
 }
 .link-color{
   color:#336780 !important;
-  /* color: white; */
   font-weight: bold;
   font-size: 18px;
 }
-
-/* .navLogo{
-  height: 50px;
-  margin-top: 10px;
-} */
 
 .material-icons{
   color: #336780;
@@ -57,11 +49,10 @@ h3{
   text-align: center;
 }
 
-/* #root > div > div {
-  background-color: rgba(0,0,0,0);
-  position: absolute;
-  width: 100%;
-} */
+.side-nav{
+  padding-top: 10px;
+  width: 70%;
+}
 
 @media screen and (max-width: 990px){
   .navLogo{
@@ -79,7 +70,11 @@ h3{
     text-align: center;
   }
   .flexAdjust{
-    justify-content: center;
+    flex-flow: column-reverse;
+  }
+  a.link-color{
+    margin-top: 20px;
+    font-size: 36px !important;
   }
 }
 

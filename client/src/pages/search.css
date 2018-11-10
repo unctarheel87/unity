@@ -1,3 +1,7 @@
+body {
+    background-image: linear-gradient(to top left, #20688a, #90d6f7);
+
+}
 .searchContainer {
     display: flex;
     flex-direction: row;
@@ -5,8 +9,7 @@
     height: 85%;
     margin: 0px auto;
     margin-top: 4em;
-   
-   
+    align-content: space-between;
 }
 
 .initialSearch {
@@ -21,13 +24,16 @@
     display: flex;
     flex-direction: column;
     width: 22%;
-    height: 80%;
+    height: 85%;
 }
 .stockSearchTitle{
     margin: auto;
 }
 .searchResults {
-    width: 78%;
+    background: white;
+    margin-left: 50px;
+    width: 77%;
+    margin-top:6px;
 }
 
 .stock-search-bar {
@@ -88,6 +94,11 @@
     margin-top:20px;
     padding:10px;
 }
+
+.add-icon:hover {
+    color: teal;
+}
+
 
 @media screen and (max-width:960px){
     .searchContainer { 
