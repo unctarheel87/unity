@@ -70,6 +70,7 @@ export default class NavBar extends React.Component {
                     trigger={<StyledButton className="logInButton"> Log In</StyledButton>}>
                     <form onSubmit={this.handleSubmit}>
                       <Input s={6} 
+                        required 
                         type='select' 
                         label="Choose your role" 
                         onChange={this.props.handleRoleChange}
@@ -79,6 +80,7 @@ export default class NavBar extends React.Component {
                         <option value='advisor'>Advisor</option>
                       </Input>
                       <Input
+                          required 
                           label="username"
                           name="username"
                           type="text"
@@ -86,14 +88,16 @@ export default class NavBar extends React.Component {
                           onChange={this.handleChange('username')}
                         />
                       <Input
+                          required 
                           label="password"
                           name="password"
                           type="password"
                           value={this.state.password}
                           onChange={this.handleChange('password')}
                         />
-                      <StyledButton type="submit" className="formSubmit logInButton modal-action modal-close">Log In</StyledButton>
+                      <StyledButton type="submit" className="formSubmit logInButton">Log In</StyledButton>
                     </form>
+                    <p>{this.props.loginError}</p>
                   </Modal>
                 </div>
               </li>
