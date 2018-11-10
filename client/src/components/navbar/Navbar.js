@@ -1,3 +1,4 @@
+/* global $ */
 import React from "react";
 import { Link } from "react-router-dom"
 import { Button, Navbar, NavItem, Modal, Input } from 'react-materialize'
@@ -43,6 +44,13 @@ export default class NavBar extends React.Component {
     })
   }
 
+  handleSidenav = event => {
+    $(".button-collapse").sideNav({
+      closeOnClick: true
+    })
+    $(".sidenav-overlay").sideNav("hide")
+  }
+
   render() {
     return (
       <Navbar brand={brandLogo}>
@@ -51,13 +59,13 @@ export default class NavBar extends React.Component {
             <li>
               <div
                 onClick={() => this.props.handlePageChange("home")}>
-                <Link className="link-color" to="/"> Home </Link>
+                <Link onClick={this.handleSidenav} className="link-color" to="/"> Home </Link>
               </div>
             </li>
             <li className="centerMargin">
               <div
                 onClick={() => this.props.handlePageChange("Search")}>
-                <Link className="link-color" to="/search"> Search </Link>
+                <Link onClick={this.handleSidenav} className="link-color" to="/search"> Search </Link>
               </div>
             </li>
           </span>
@@ -67,11 +75,11 @@ export default class NavBar extends React.Component {
                 <div>
                   <Modal
                     header='Log In'
-                    trigger={<StyledButton className="logInButton"> Log In</StyledButton>}>
+                    trigger={<StyledButton className="logInButton"><div onClick={this.handleSidenav}> Log In</div></StyledButton>}>
                     <form onSubmit={this.handleSubmit}>
-                      <Input s={6} 
-                        type='select' 
-                        label="Choose your role" 
+                      <Input s={6}
+                        type='select'
+                        label="Choose your role"
                         onChange={this.props.handleRoleChange}
                         value={this.props.role}
                       >
@@ -79,19 +87,19 @@ export default class NavBar extends React.Component {
                         <option value='advisor'>Advisor</option>
                       </Input>
                       <Input
-                          label="username"
-                          name="username"
-                          type="text"
-                          value={this.state.username}
-                          onChange={this.handleChange('username')}
-                        />
+                        label="username"
+                        name="username"
+                        type="text"
+                        value={this.state.username}
+                        onChange={this.handleChange('username')}
+                      />
                       <Input
-                          label="password"
-                          name="password"
-                          type="password"
-                          value={this.state.password}
-                          onChange={this.handleChange('password')}
-                        />
+                        label="password"
+                        name="password"
+                        type="password"
+                        value={this.state.password}
+                        onChange={this.handleChange('password')}
+                      />
                       <StyledButton type="submit" className="formSubmit logInButton modal-action modal-close">Log In</StyledButton>
                     </form>
                   </Modal>
@@ -106,10 +114,10 @@ export default class NavBar extends React.Component {
                     <div
                       onClick={() => this.props.handlePageChange("Profile")}>
                       {this.props.user &&
-                      <Link className="link-color" to="/user"> Dashboard </Link>
+                        <Link onClick={this.handleSidenav} className="link-color" to="/user"> Dashboard </Link>
                       }
                       {this.props.advisor &&
-                      <Link className="link-color" to="/advisor"> Dashboard </Link>
+                        <Link onClick={this.handleSidenav} className="link-color" to="/advisor"> Dashboard </Link>
                       }
                     </div>
                   </li>
