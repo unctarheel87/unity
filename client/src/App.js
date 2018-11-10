@@ -143,14 +143,14 @@ class App extends Component {
               <Route path="/search" component={() => <Search />} />
             </div>
           )}
-          {!this.state.loggedIn && (
+          {!this.state.loggedIn && !this.state.advisorLoggedIn && (
             <div>
               {/* only here for testing */}
               <Route exact path="/" component={Home} />
               <Route path="/search" component={Search} />
-              <Footer />
             </div>
           )}
+          <Footer />
         </div>
       </Router>
     )
