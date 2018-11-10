@@ -12,20 +12,29 @@ class UserDashboard extends React.Component {
     }
   }
 
-  handleTab = () => {
-    this.setState({ 
-      currentTab: this.state.currentTab === 'UserDashHome' ? 'Messages' : 'UserDashHome'
-    })
+  handleTab = (event) => {
+    if(event.currentTarget.value === "home" && this.state.currentTab === "Messages") {
+      this.setState({
+        currentTab: "UserDashHome"
+      })
+    }
+    else if(event.currentTarget.value === "messages" && this.state.currentTab === "UserDashHome") {
+      this.setState({
+        currentTab: "Messages"
+      })
+    }
+    else {
+      return;
+    }
   }
 
   renderPage() {
     if(this.state.currentTab === 'UserDashHome') {
-      return <UserDashHome user={this.props.user} />
+      return <UserDashHome user={this.props.user} getUser={this.props.getUser}/>
     }
     else if(this.state.currentTab === 'Messages') {
       return (
         <div className="user-messages">
-          <h4>Message</h4>
           <UserMessages user={this.props.user} />
         </div>
       )
@@ -37,8 +46,8 @@ class UserDashboard extends React.Component {
       <div>
         <div className="user-dash-nav">
           <p className="user-dash-nav-name">{this.props.user.username}'s Dashboard</p>
-          <button onClick={this.handleTab}><p>Home</p></button>
-          <button onClick={this.handleTab}><p>Messages</p></button>
+          <button onClick={this.handleTab} value="home"><p>Home</p></button>
+          <button onClick={this.handleTab} value="messages"><p>Messages</p></button>
         </div>
         {this.renderPage()}
       </div>
