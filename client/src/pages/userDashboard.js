@@ -36,7 +36,7 @@ class UserDashboard extends React.Component {
     return (
       <div>
         <div className="user-dash-nav">
-          <p className="user-dash-nav-name">{this.props.user.username}</p>
+          <p className="user-dash-nav-name">{this.props.user.username}'s Dashboard</p>
           <button onClick={this.handleTab}><p>Home</p></button>
           <button onClick={this.handleTab}><p>Messages</p></button>
         </div>

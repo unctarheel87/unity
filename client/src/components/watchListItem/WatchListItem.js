@@ -33,7 +33,7 @@ export default class WatchListItem extends Component {
         >
           <i className="material-icons">show_chart</i>
           <h5>{this.props.stock.ticker}</h5>
-          <button onClick={this.removeWatchListItem}>X</button>
+          <button className="remove-btn" onClick={this.removeWatchListItem}>X</button>
         </li>
         {this.state.hasClicked &&
           <div className="watchlist-chart">

@@ -18,10 +18,24 @@
 }
 
 .watchlist-item:hover {
-  background-color: rgba(66, 165, 245, 0.5);
+  background-color: rgba(0, 253, 106, 0.315);
   cursor: pointer;
 }
 
 h5 {
   margin: 0 5px;
+}
+
+.remove-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 18px;
+  position: relative;
+  bottom: 16px;
+  left: 64px;
+}
+
+.remove-btn:hover {
+  color: red;
 }
