@@ -26,6 +26,7 @@ class Search extends React.Component {
   handleAddtoWatchList = () => {
     let ticker = this.state.stockInfo.symbol
     API.insertTicker(ticker);
+    window.Materialize.toast(this.state.stockInfo.symbol + " added to Watch List", 3000);
   }
   handleChange = event => {
     this.setState({
