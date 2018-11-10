@@ -20,6 +20,7 @@ export default class Messages extends Component {
 			<div>
 				<form onSubmit={this.handleSubmit}>
 						<Input
+						  required 
 							label="your message"
 							name="message"
 							type="textarea"

@@ -1,3 +1,4 @@
+/* global $ */
 import React, { Component } from 'react';
 import { Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
@@ -19,7 +20,8 @@ class App extends Component {
     advisor: null,
     role: 'user',
     currentPage: "",
-    advisorLoggedIn: false
+    advisorLoggedIn: false,
+    loginError: ''
   }
 
   handlePageChange = page => {
@@ -67,17 +69,21 @@ class App extends Component {
         .then(response => {
           console.log(response);
           if (response.status === 200) {
+            $(".open").modal('close')
             this.getUser()
           }
-        });
+        })
+        .catch(err => this.setState({ loginError: "username or password is incorrect" }));
     } else if (this.state.role === 'advisor') {
       Advisor.login(user)
         .then(response => {
           console.log(response);
           if (response.status === 200) {
+            $(".open").modal('close')
             this.getAdvisor()
           }
-        });
+        })
+        .catch(err => this.setState({ loginError: "username or password is incorrect" })); 
     }
   }
   handleLogout = (event) => {
@@ -122,6 +128,7 @@ class App extends Component {
             role={this.state.role}
             user={this.state.user}
             advisor={this.state.advisor}
+            loginError={this.state.loginError}
           />
           {this.state.loggedIn && (
             <div className="user-dash">
