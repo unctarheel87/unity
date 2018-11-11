@@ -33,7 +33,7 @@ export default class UserDashHome extends Component {
           <ul className="watchlist-container">
             <h4>My Watchlist</h4>
             <div className="watchlist-border">
-              <Link to="/search" style={{color: "white", fontSize: 18}}>Go to <strong style={{color: "navy"}}>Search Page</strong> to add Stocks</Link>
+              <Link to="/search" style={{color: "white", fontSize: 18}}>Go to <span id="user-search-link">Search Page</span> to add Stocks</Link>
             </div>
           </ul>
           <div className="news-feed">
