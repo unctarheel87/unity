@@ -14,14 +14,14 @@ export default class UserDashHome extends Component {
             <h4>My Watchlist</h4>
             <div className="watchlist-border">
             {this.props.user.stocks.map(stock => (
-              <WatchListItem stock={stock} getUser={this.props.getUser}/>
+              <WatchListItem key={stock._id} stock={stock} getUser={this.props.getUser}/>
             ))}
             </div>
           </ul>
           <div className="news-feed">
             <h4>My News</h4>
             {this.props.user.stocks.map(stock => (
-              <UserNews stock={stock}/>
+              <UserNews key={stock._id} stock={stock}/>
             ))}
           </div>
         </div>

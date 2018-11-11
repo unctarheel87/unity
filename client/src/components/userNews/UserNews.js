@@ -11,7 +11,7 @@ export default class UserNews extends Component {
   }
   getStockNews = (ticker) => API.getCompanyNews(ticker)
     .then(response => {
-    this.setState({ news: response.data })
+      this.setState({ news: response.data })
     })
     .catch(err => console.log(err));
   render() {
@@ -23,7 +23,7 @@ export default class UserNews extends Component {
           )}
         </div>
       )
-    }else {
+    } else {
       return (
         <div>
           <p>No News</p>

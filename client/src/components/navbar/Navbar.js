@@ -77,16 +77,10 @@ export default class NavBar extends React.Component {
                     header='Log In'
                     trigger={<StyledButton className="logInButton"><div onClick={this.handleSidenav}> Log In</div></StyledButton>}>
                     <form onSubmit={this.handleSubmit}>
-<<<<<<< HEAD
-                      <Input s={6}
-                        type='select'
-                        label="Choose your role"
-=======
                       <Input s={6} 
                         required 
                         type='select' 
                         label="Choose your role" 
->>>>>>> b4e261ecd41fb804d6b38387363e21e947742ea1
                         onChange={this.props.handleRoleChange}
                         value={this.props.role}
                       >
@@ -94,22 +88,6 @@ export default class NavBar extends React.Component {
                         <option value='advisor'>Advisor</option>
                       </Input>
                       <Input
-<<<<<<< HEAD
-                        label="username"
-                        name="username"
-                        type="text"
-                        value={this.state.username}
-                        onChange={this.handleChange('username')}
-                      />
-                      <Input
-                        label="password"
-                        name="password"
-                        type="password"
-                        value={this.state.password}
-                        onChange={this.handleChange('password')}
-                      />
-                      <StyledButton type="submit" className="formSubmit logInButton modal-action modal-close">Log In</StyledButton>
-=======
                           required 
                           label="username"
                           name="username"
@@ -126,7 +104,6 @@ export default class NavBar extends React.Component {
                           onChange={this.handleChange('password')}
                         />
                       <StyledButton type="submit" className="formSubmit logInButton">Log In</StyledButton>
->>>>>>> b4e261ecd41fb804d6b38387363e21e947742ea1
                     </form>
                     <p>{this.props.loginError}</p>
                   </Modal>

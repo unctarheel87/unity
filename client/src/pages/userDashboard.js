@@ -11,7 +11,9 @@ class UserDashboard extends React.Component {
       currentTab: 'UserDashHome'
     }
   }
-
+  componentDidMount() {
+    this.props.getUser()
+  }
   handleTab = (event) => {
     if(event.currentTarget.value === "home" && this.state.currentTab === "Messages") {
       this.setState({

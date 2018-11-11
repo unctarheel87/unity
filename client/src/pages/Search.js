@@ -25,7 +25,9 @@ class Search extends React.Component {
   })
   handleAddtoWatchList = () => {
     let ticker = this.state.stockInfo.symbol
-    API.insertTicker(ticker);
+    API.insertTicker(ticker)
+      .then(response => console.log(response))
+      .catch(err => console.log(err))
     window.Materialize.toast(this.state.stockInfo.symbol + " added to Watch List", 3000);
   }
   handleChange = event => {
@@ -50,6 +52,9 @@ class Search extends React.Component {
   }
   handleClick = event => {
     if (event) event.preventDefault();
+    this.getAllStockData();
+  }
+  getAllStockData() {
     let term = this.state.value;
     //info
     API.getCompanyInfo(term)
