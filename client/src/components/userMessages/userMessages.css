@@ -5,6 +5,40 @@
   min-height: 80vh;
 }
 
-.messages-display p {
+.user-messages-container h4 {
+  color: white;
+  text-align: center;
+}
+
+.user-messages-display {
+  width: 40%;
+  margin: 0 30px 0 60px;
+}
+
+.user-message-form {
+  width: 60%;
+  margin: 0 60px 0 30px;
+}
+
+.message-card {
+  width: 540px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+
+.user-message-form form {
+  background: white;
+  padding: 30px;
+}
+
+.user-message-form form label {
+  font-size: 20px;
+}
+
+.message-card p {
   font-size: 12px;
+}
+
+#advisor-name {
+  color: black;
 }

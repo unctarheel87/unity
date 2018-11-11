@@ -8,7 +8,9 @@ class UserDashboard extends React.Component {
     super(props)
 
     this.state = {
-      currentTab: 'UserDashHome'
+      currentTab: 'UserDashHome',
+      homeTabStyle: 'user-tab-active',
+      messagesTabStyle: 'user-tab-inactive'
     }
   }
   componentDidMount() {
@@ -17,12 +19,16 @@ class UserDashboard extends React.Component {
   handleTab = (event) => {
     if(event.currentTarget.value === "home" && this.state.currentTab === "Messages") {
       this.setState({
-        currentTab: "UserDashHome"
+        currentTab: "UserDashHome",
+        messagesTabStyle: 'user-tab-inactive',
+        homeTabStyle: 'user-tab-active',
       })
     }
     else if(event.currentTarget.value === "messages" && this.state.currentTab === "UserDashHome") {
       this.setState({
-        currentTab: "Messages"
+        currentTab: "Messages",
+        homeTabStyle: 'user-tab-inactive',
+        messagesTabStyle: 'user-tab-active'
       })
     }
     else {
@@ -48,8 +54,10 @@ class UserDashboard extends React.Component {
       <div>
         <div className="user-dash-nav">
           <p className="user-dash-nav-name">{this.props.user.username}'s Dashboard</p>
-          <button onClick={this.handleTab} value="home"><p>Home</p></button>
-          <button onClick={this.handleTab} value="messages"><p>Messages</p></button>
+          <button onClick={this.handleTab} className={this.state.homeTabStyle} value="home">
+            <span>Home</span><i className="material-icons small">home</i></button>
+          <button onClick={this.handleTab} className={this.state.messagesTabStyle} value="messages">
+            <span>Messages</span><i className="material-icons small">mail</i></button>
         </div>
         {this.renderPage()}
       </div>

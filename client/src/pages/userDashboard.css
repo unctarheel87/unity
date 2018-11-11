@@ -10,8 +10,16 @@
   color: white;
 }
 
-.user-dash-nav-name {
-  color: darkcyan;
+.user-dash-nav button span {
+  font-size: 24px;
+  color: white;
+}
+
+.user-dash-nav button i {
+  position: relative;
+  top: 8px;
+  color: white;
+  margin-left: 2px;
 }
 
 .user-dashboard {
@@ -70,3 +78,16 @@
 #user-search-link:hover {
   text-decoration: underline;
 }
+
+.user-dash-nav button:active{
+  background-image: none !important;
+}
+
+.user-tab-inactive {
+  background-image: linear-gradient(to top left, #20688a, #90d6f7);
+}
+
+.user-tab-active {
+  background-image: #90d6f7;
+}
+
