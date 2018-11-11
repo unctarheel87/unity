@@ -15,7 +15,12 @@ export default class Messages extends Component {
 	};
 	handleSubmit = event => {
 		event.preventDefault();
-		API.createMsg(this.state.message, this.state.user);	
+		API.createMsg(this.state.message, this.state.user);
+		window.Materialize.toast('Message Sent', 2000);
+		this.setState({
+			message: '',
+			user: ''
+		});
 	}
 	render() {
 		return (

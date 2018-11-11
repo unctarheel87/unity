@@ -61,3 +61,12 @@
 .watchlist-chart button {
   float: right;
 }
+
+#user-search-link {
+  color: navy;
+  font-weight: bold;
+}
+
+#user-search-link:hover {
+  text-decoration: underline;
+}
