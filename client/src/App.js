@@ -133,8 +133,8 @@ class App extends Component {
           {this.state.loggedIn && (
             <div className="user-dash">
               <Route exact path="/" component={Home} />
-              <Route path="/user" component={() => <UserDashboard user={this.state.user} getUser={this.getUser}/>} />
-              <Route path="/search" component={() => <Search loggedIn={this.state.loggedIn} />} />
+              <Route path="/user" render={() => <UserDashboard user={this.state.user} getUser={this.getUser}/>} />
+              <Route path="/search" component={() => <Search loggedIn={this.state.loggedIn} getUser={this.getUser}/>} />
             </div>
           )}
           {this.state.advisorLoggedIn && (

@@ -11,17 +11,16 @@ export default class WatchListItem extends Component {
     data: null,
     hasClicked: false
   };
-  componentDidMount() {
-    this.getStockData(this.props.stock.ticker)
-  }
   handleClick = () => {
+    this.getStockData(this.props.stock.ticker)
     this.setState({ hasClicked: this.state.hasClicked ? false : true })
   }
   removeWatchListItem = (e) => {
     e.stopPropagation();
     let id = this.props.stock._id;
-    API.deleteStock(id);
-    this.props.getUser();
+    API.deleteStock(id)
+    .then(response =>  this.props.getUser())
+    .catch(err => console.log(err))
   }
   getStockData = (term) => API.getData(term).then(data => {
     this.setState({ data })
