@@ -20,7 +20,7 @@ class Search extends React.Component {
     value: '',
     data: null
   }
-  getStockData = (term) => API.getData(term).then(data => {
+  getStockData = (term) => API.getData(term, '60min').then(data => {
     this.setState({ data })
   })
   handleAddtoWatchList = () => {
