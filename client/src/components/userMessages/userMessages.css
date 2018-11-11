@@ -42,3 +42,28 @@
 #advisor-name {
   color: black;
 }
+
+/* responsive styling */
+@media screen and (max-width:600px){
+  .user-dashboard{
+    flex-direction: column;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .watchlist-border {
+    min-height: 0px;
+  }
+  .news-feed {
+      width: 100%;
+  }
+  .user-messages-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 80vh;
+  }
+  .message-form{
+    width: 100%;
+  }
+}
+
