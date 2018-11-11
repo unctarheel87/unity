@@ -22,7 +22,7 @@ export default class WatchListItem extends Component {
     .then(response =>  this.props.getUser())
     .catch(err => console.log(err))
   }
-  getStockData = (term) => API.getData(term).then(data => {
+  getStockData = (term) => API.getData(term, "1min").then(data => {
     this.setState({ data })
   })
   render() {

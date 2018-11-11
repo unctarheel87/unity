@@ -2,16 +2,16 @@ import axios from "axios";
 import { csv } from "d3-request";
 import { timeParse } from "d3-time-format";
 
-const stockSearch = (ticker) => {
+const stockSearch = (ticker, timeInterval) => {
   const API_KEY = 'NSUNV8LPVSSN0247'
   const url = 
     'https://www.alphavantage.co/query?' +
     'function=TIME_SERIES_INTRADAY' + 
     '&symbol=' + ticker +
-    '&interval=60min' + 
+    '&interval=' + timeInterval + 
     '&apikey=' + API_KEY +
     '&datatype=csv'
-
+  
     return stockDataPromise(url)
 }
 
@@ -39,8 +39,8 @@ function stockDataPromise(url) {
 }
 
 export default {
-  getData: (ticker) => {
-    const data = stockSearch(ticker)
+  getData: (ticker, timeInterval) => {
+    const data = stockSearch(ticker, timeInterval)
       .then(response => {
         const arr = response
         const newArr = arr.map(parseData(parseDate))
