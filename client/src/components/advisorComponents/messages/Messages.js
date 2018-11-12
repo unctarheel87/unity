@@ -15,12 +15,15 @@ export default class Messages extends Component {
 	};
 	handleSubmit = event => {
 		event.preventDefault();
-		API.createMsg(this.state.message, this.state.user);
-		this.props.emit('New Message From ' + this.props.advisor.username);
-		this.setState({
-			message: '',
-			user: ''
-		});
+		API.createMsg(this.state.message, this.state.user)
+		.then(response => {
+			this.props.emit('New Message From ' + this.props.advisor.username);
+			this.setState({
+				message: '',
+				user: ''
+			});
+		})
+		.catch(err => console.log(err))
 	}
 	render() {
 		return (
