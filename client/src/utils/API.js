@@ -55,6 +55,9 @@ export default {
   deleteStock: (id) => {
     return axios.delete('/stocks/' + id)
   },
+  deleteMessage: (id) => {
+    return axios.delete('/messages/' + id)
+  },
   createMsg: (message, userId) => {
     return axios.post('/messages', { message, userId })
   },
