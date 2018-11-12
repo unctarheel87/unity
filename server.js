@@ -78,6 +78,9 @@ io.on('connection', socket => {
   socket.on('message', msg => {
     io.emit('message', msg );
   })
+  socket.on('message2', msg => {
+    io.emit('message2', msg );
+  })
 });
 
 server.listen(PORT, () => console.log("server is running at " + PORT));

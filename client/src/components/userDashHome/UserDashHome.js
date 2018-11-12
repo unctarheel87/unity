@@ -3,12 +3,6 @@ import { Link } from 'react-router-dom';
 import WatchListItem from '../watchListItem';
 import UserNews from '../userNews';
 import '../../pages/userDashboard.css';
-import openSocket from 'socket.io-client';
-const socket = openSocket();
-
-socket.on('message', msg => {
-  window.Materialize.toast(msg, 10000)
-})
 
 
 export default class UserDashHome extends Component {

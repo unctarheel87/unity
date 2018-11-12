@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./index.css"
 import { Input } from 'react-materialize';
 import API from '../../../utils/API';
+import openSocket from 'socket.io-client';
 
 export default class Messages extends Component {
 	state= {
@@ -17,7 +18,8 @@ export default class Messages extends Component {
 		event.preventDefault();
 		API.createMsg(this.state.message, this.state.user)
 		.then(response => {
-			this.props.emit('New Message From ' + this.props.advisor.username);
+			window.Materialize.toast("Message Sent", 10000)
+			emit('New message from your advisor: ' + this.props.advisor.username);
 			this.setState({
 				message: '',
 				user: ''
@@ -56,4 +58,9 @@ export default class Messages extends Component {
 			</div>
 		)
 	}
+}
+
+function emit(msg) {
+	const socket = openSocket();
+	socket.emit('message', msg) 
 }
