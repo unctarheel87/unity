@@ -46,7 +46,7 @@ export default class signupForm extends Component {
       })
         .then(response => {
           console.log(response)
-          $(".modal open").modal('close')
+          $(".open").modal('close')
         })
         .catch(err => console.log(err))
     } else if (this.state.role === 'advisor') {
@@ -98,7 +98,7 @@ export default class signupForm extends Component {
               >
               <option></option>
               {this.state.advisors.map(advisor => (
-                <option value={advisor._id}>{advisor.username}</option>
+                <option value={JSON.stringify(advisor)}>{advisor.username}</option>
               ))}
               </Input>
             }

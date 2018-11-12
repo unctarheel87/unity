@@ -1,7 +1,12 @@
 .user-dash-nav {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   background-image: linear-gradient(to top left, #20688a, #90d6f7);
+}
+
+.user-dash-nav-name {
+  display: inline-block;
 }
 
 .user-dash-nav p {
@@ -79,7 +84,7 @@
   text-decoration: underline;
 }
 
-.user-dash-nav button:active{
+.user-dash-nav button:active {
   background-image: none !important;
 }
 
