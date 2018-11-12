@@ -3,6 +3,7 @@ import { Input, Col, Card } from 'react-materialize';
 import UserMessage from '../userMessage';
 import API from '../../utils/API';
 import './userMessages.css';
+import openSocket from 'socket.io-client';
 
 export default class Messages extends Component {
 	state= {
@@ -15,10 +16,14 @@ export default class Messages extends Component {
 	};
 	handleSubmit = event => {
 		event.preventDefault();
-		API.createMsg(this.state.message, this.props.user._id);
-		window.Materialize.toast('Message Sent', 2000);
-		this.setState({ message: '' });
-	};
+		API.createMsg(this.state.message, this.props.user._id)
+		.then(response => {
+			window.Materialize.toast('Message Sent', 2000);
+			emit('New message from your client: ' + this.props.user.username);
+			this.setState({ message: '' });
+		})
+		.catch(err => console.log(err));
+	}
 	render() {
 		//filter only messages sent by the advisor
 		const filteredMessages = this.props.user.messages.filter(message => message.author !== this.props.user.username);
@@ -47,4 +52,9 @@ export default class Messages extends Component {
 			</div>
 		)
 	}
+}
+
+function emit(msg) {
+	const socket = openSocket();
+	socket.emit('message2', msg) 
 }

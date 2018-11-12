@@ -20,13 +20,16 @@ export default class Profile extends React.Component {
     currentTab: "home"
   }
 
-  handleTab = tab => {
-    this.setState({ currentTab: tab })
+  componentDidMount() {
+    const socket = openSocket();
+
+    socket.on('message2', msg => {
+      window.Materialize.toast(msg, 10000)
+    })
   }
 
-  emit = (msg) => {
-    const socket = openSocket();
-    socket.emit('message', msg) 
+  handleTab = tab => {
+    this.setState({ currentTab: tab })
   }
 
   renderPage() {

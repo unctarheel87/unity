@@ -5,6 +5,7 @@ import './App.css';
 import Footer from "./components/footer"
 import Nav from "./components/navbar"
 import { User, Advisor } from './utils/Auth';
+import openSocket from 'socket.io-client';
 
 //Pages
 import Search from "./pages/Search"
@@ -33,6 +34,7 @@ class App extends Component {
     this.getUser()
     this.getAdvisor()
   }
+
   getUser = () => User.getUser()
     .then(response => {
       console.log(response.data);
