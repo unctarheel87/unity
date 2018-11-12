@@ -8,11 +8,6 @@ import ClientList from "../components/advisorComponents/clientList";
 import Messages from "../components/advisorComponents/messages";
 import Preferences from "../components/advisorComponents/preferences";
 import openSocket from 'socket.io-client';
-const socket = openSocket();
-
-socket.on('message', msg => {
-  window.Materialize.toast('Message Sent!', 10000)
-})
 
 const StyledCard = styled(Card)`
       &&&&&&{
@@ -30,6 +25,7 @@ export default class Profile extends React.Component {
   }
 
   emit = (msg) => {
+    const socket = openSocket();
     socket.emit('message', msg) 
   }
 
