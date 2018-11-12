@@ -1,0 +1,20 @@
+.clientItem{
+    background-color: #1b3846;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    width: 100px;
+    padding: 10px 0;
+    margin: 10px;
+}
+
+.usersListFlex{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin-bottom: 3vh;
+}
+
+.messageLog{
+    text-align: left;
+}

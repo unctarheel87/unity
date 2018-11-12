@@ -1,8 +1,13 @@
 import React, { Component } from "react";
+import {Card} from "react-materialize";
 import "./index.css"
 import { Input } from 'react-materialize';
 import API from '../../../utils/API';
 import openSocket from 'socket.io-client';
+
+const h2Style = {
+	textAlign: "center",
+}
 
 export default class Messages extends Component {
 	state= {
@@ -30,8 +35,9 @@ export default class Messages extends Component {
 	render() {
 		return (
 			<div>
+			<Card className="advHeader z-depth-4">New Message </Card>
+			<Card className="z-depth-4">
 				<form onSubmit={this.handleSubmit}>
-					<h2>New Message</h2>
 						<Input s={6} 
 						  required 
               type='select' 
@@ -55,6 +61,7 @@ export default class Messages extends Component {
 						/>
 					<button type="submit" className="formSubmit waves-effect waves-light btn">Submit</button>
 				</form>
+			</Card>
 			</div>
 		)
 	}

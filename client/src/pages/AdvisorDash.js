@@ -9,12 +9,6 @@ import Messages from "../components/advisorComponents/messages";
 import Preferences from "../components/advisorComponents/preferences";
 import openSocket from 'socket.io-client';
 
-const StyledCard = styled(Card)`
-      &&&&&&{
-       
-      }
-`
-
 export default class Profile extends React.Component {
   state = {
     currentTab: "home"
@@ -55,9 +49,9 @@ export default class Profile extends React.Component {
           </div>
           <div className=" mainWindow">
             <div className="container">
-              <StyledCard>
+              <div className="animatedCard">
                 {this.renderPage()}
-              </StyledCard>
+              </div>
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ export default class NavBar extends React.Component {
 
   render() {
     return (
-      <div className="z-depth-4 animated">
+      <div className="z-depth-4 animatedNav">
         {/* Desktop navbar */}
         <div className="advNav hide-on-small-and-down">
           <div className="advNavItem" onClick={() => this.props.handleTab("home")}>
