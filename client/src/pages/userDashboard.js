@@ -3,11 +3,6 @@ import UserDashHome from '../components/userDashHome';
 import UserMessages from '../components/userMessages';
 import './userDashboard.css';
 import openSocket from 'socket.io-client';
-const socket = openSocket();
-
-socket.on('message', msg => {
-  window.Materialize.toast(msg, 10000)
-})
 
 class UserDashboard extends React.Component {
   constructor(props) {
@@ -21,6 +16,11 @@ class UserDashboard extends React.Component {
   }
   componentDidMount() {
     this.props.getUser()
+    const socket = openSocket();
+
+    socket.on('message', msg => {
+      window.Materialize.toast(msg, 10000)
+    })
   }
   handleTab = (event) => {
     if(event.currentTarget.value === "home" && this.state.currentTab === "Messages") {
