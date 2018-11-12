@@ -59,9 +59,7 @@ export default {
     return axios.delete('/messages/' + id)
   },
   createMsg: (message, userId) => {
-    axios.post('/messages', { message, userId })
-    .then(response => console.log(response))
-    .catch(err => console.log(err))
+    return axios.post('/messages', { message, userId })
   },
   getWatchList: () => {
     axios.get('/stocks')

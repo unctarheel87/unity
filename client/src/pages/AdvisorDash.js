@@ -7,6 +7,7 @@ import AdvisorHome from "../components/advisorComponents/advisorHome";
 import ClientList from "../components/advisorComponents/clientList";
 import Messages from "../components/advisorComponents/messages";
 import Preferences from "../components/advisorComponents/preferences";
+import openSocket from 'socket.io-client';
 
 const StyledCard = styled(Card)`
       &&&&&&{
@@ -23,6 +24,11 @@ export default class Profile extends React.Component {
     this.setState({ currentTab: tab })
   }
 
+  emit = (msg) => {
+    const socket = openSocket();
+    socket.emit('message', msg) 
+  }
+
   renderPage() {
     if (this.state.currentTab === "home") {
       return <AdvisorHome />
@@ -30,7 +36,7 @@ export default class Profile extends React.Component {
       return <ClientList users={this.props.advisor.users}/>
     }
     else if (this.state.currentTab === "messages") {
-      return <Messages users={this.props.advisor.users}/>
+      return <Messages advisor = {this.props.advisor} users={this.props.advisor.users} emit={this.emit}/>
     }
     else if (this.state.currentTab === "preferences") {
       return <Preferences />
