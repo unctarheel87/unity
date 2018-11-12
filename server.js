@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const passport = require("passport");
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5000;
 const LocalStrategy = require("passport-local");
 const mongoose = require("mongoose");
 const userRoutes = require('./routes/userRoutes');

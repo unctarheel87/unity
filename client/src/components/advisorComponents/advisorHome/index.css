@@ -1,0 +1,17 @@
+.advisorWindow{
+    text-align: center;
+}
+
+.advHeader{
+    margin-bottom: 5vh;
+    margin-top: 0;
+    font-size: 4.2rem;
+}
+
+@media screen and (max-width:600px){
+    .advHeader{
+        margin-bottom: 2vh;
+        margin-top: 0;
+        font-size: 3rem !important;
+    }
+}

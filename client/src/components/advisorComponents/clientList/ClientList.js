@@ -1,26 +1,35 @@
 import React from "react";
 import { Card } from 'react-materialize';
 import "./index.css"
- 
+
+const messageHeader = {
+	borderBottom: "2px solid black"
+}
+const h2Style = {
+	textAlign: "center",
+}
 export default (props) => (
-	<div>
-		<h1>Your Clients</h1>
-			{props.users.map(user => (
-					<Card key={user._id}>
-						<h4>{user.username}</h4>
-						<p>Currently watching:</p>
-						<ul>
-						{user.stocks.map(stock => (
-							<li key={stock._id}>{stock.ticker}</li>
-						))}
-						</ul>
-						<p>Messages:</p>
-						<ul>
-						{user.messages.map(message => (
-							<li key={message._id}>{message.message} : {message.author} - {message.updated}</li>
-						))}
-						</ul>
-					</Card>
-			))}
+	<div className="advisorWindow">
+		<Card className="advHeader z-depth-4">Your Clients</Card>
+		{props.users.map(user => (
+			<Card className="z-depth-4" key={user._id}>
+				<h4>Client Name: {user.username}</h4>
+				<hr></hr>
+				<p>Currently watching:</p>
+				<div className="usersListFlex">
+					{user.stocks.map(stock => (
+						<div className="clientItem" key={stock._id}>
+						{stock.ticker}
+						</div>
+					))}
+				</div>
+				<p style={messageHeader}>Messages:</p>
+				<ul className="messageLog">
+					{user.messages.map(message => (
+						<li key={message._id}>({message.updated}) {message.author}: {message.message}</li>
+					))}
+				</ul>
+			</Card>
+		))}
 	</div>
 );

@@ -2,9 +2,20 @@
   background-image: linear-gradient(to top left, #20688a, #90d6f7);
   width: 100%;
   z-index: -1;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 50px;
   padding-left: 170px;
+}
+
+.animatedCard{
+  position: relative;
+  -webkit-animation: cardMove 3s; /* Safari 4.0 - 8.0 */
+  animation: cardMove 3s;
+}
+
+@keyframes cardMove {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
 @media screen and (max-width:600px){

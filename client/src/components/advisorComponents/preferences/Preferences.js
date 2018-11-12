@@ -1,10 +1,11 @@
 import React from "react";
-import "./index.css"
+import {Card} from "react-materialize";
+import "./index.css";
 
 export default () => (
-    <div>
+    <Card>
         <div>
-            preferences
+            future iteration to add customization options in this tab.
         </div>
-    </div>
+    </Card>
 )

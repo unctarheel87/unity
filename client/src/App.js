@@ -13,6 +13,7 @@ import Home from "./pages/Home";
 import UserDashboard from './pages/userDashboard';
 import AdvisorDash from './pages/AdvisorDash';
 import API from './utils/API';
+import RequireSignIn from "./components/redirectComps"
 
 
 class App extends Component {
@@ -86,7 +87,7 @@ class App extends Component {
             this.getAdvisor()
           }
         })
-        .catch(err => this.setState({ loginError: "username or password is incorrect" })); 
+        .catch(err => this.setState({ loginError: "username or password is incorrect" }));
     }
   }
   handleLogout = (event) => {
@@ -136,14 +137,17 @@ class App extends Component {
           {this.state.loggedIn && (
             <div className="user-dash">
               <Route exact path="/" component={Home} />
-              <Route path="/user" render={() => <UserDashboard user={this.state.user} getUser={this.getUser}/>} />
-              <Route path="/search" component={() => <Search loggedIn={this.state.loggedIn} getUser={this.getUser}/>} />
+              <Route path="/search" component={() => <Search loggedIn={this.state.loggedIn} getUser={this.getUser} />} />
+              <Route path="/user" render={() => <UserDashboard user={this.state.user} getUser={this.getUser} />} />
+              <Route path="/advisor" component={()=> <RequireSignIn type="notAdvisor"/>} />
             </div>
           )}
           {this.state.advisorLoggedIn && (
             <div className="advisor-dash">
-              <Route path="/advisor" component={() => <AdvisorDash advisor={this.state.advisor} />} />
-              <Route path="/search" component={() => <Search />} />
+              <Route exact path="/" component={Home} />
+              <Route path="/search" component={() => <Search />} />    
+              <Route path="/advisor" component={() => <AdvisorDash advisor={this.state.advisor} />} /> 
+              <Route path="/user" component={()=> <RequireSignIn type="notUser"/>} />
             </div>
           )}
           {!this.state.loggedIn && !this.state.advisorLoggedIn && (
@@ -151,6 +155,8 @@ class App extends Component {
               {/* only here for testing */}
               <Route exact path="/" component={Home} />
               <Route path="/search" component={Search} />
+              <Route path="/user" component={()=> <RequireSignIn type="notUser"/>} />
+              <Route path="/advisor" component={()=> <RequireSignIn type="notAdvisor"/>} />
             </div>
           )}
           <Footer />
