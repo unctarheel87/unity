@@ -59,11 +59,14 @@ class UserDashboard extends React.Component {
     return (
       <div>
         <div className="user-dash-nav">
-          <p className="user-dash-nav-name">{this.props.user.username}'s Dashboard</p>
-          <button onClick={this.handleTab} className={this.state.homeTabStyle} value="home">
-            <span>Home</span><i className="material-icons small">home</i></button>
-          <button onClick={this.handleTab} className={this.state.messagesTabStyle} value="messages">
-            <span>Messages</span><i className="material-icons small">mail</i></button>
+          <div>
+            <p className="user-dash-nav-name">{this.props.user.username}'s Dashboard</p>
+            <button onClick={this.handleTab} className={this.state.homeTabStyle} value="home">
+              <span>Home</span><i className="material-icons small">home</i></button>
+            <button onClick={this.handleTab} className={this.state.messagesTabStyle} value="messages">
+              <span>Messages</span><i className="material-icons small">mail</i></button>
+          </div>
+          <p className="user-advisor-display">Your Advisor: {this.props.user.advisor}</p>
         </div>
         {this.renderPage()}
       </div>

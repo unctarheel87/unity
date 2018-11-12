@@ -38,7 +38,7 @@ export default class Messages extends Component {
 				<div className="user-message-form">
 					<h4>Compose Message</h4>
 					<form onSubmit={this.handleSubmit}>
-							<label> To: <span id="advisor-name">{this.props.user.messages[0].author}</span> </label>
+							<label> To: <span id="advisor-name">{this.props.user.advisor}</span> </label>
 							<Input
 								label="your message"
 								name="message"

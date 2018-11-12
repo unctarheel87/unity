@@ -5,9 +5,11 @@ const Advisor = require('../models/Advisor');
 const router = express.Router();
 
 router.post('/register', function(req, res) {
-  User.register(new User({ username : req.body.username }), req.body.password, function(err, user) {
+  const advisor = JSON.parse(req.body.advisor);
+  console.log(advisor);
+  User.register(new User({ username : req.body.username, advisor: advisor.username }), req.body.password, function(err, user) {
     if (err) console.log(err)
-    Advisor.findOneAndUpdate( {_id: req.body.advisor }, {
+    Advisor.findOneAndUpdate( {_id: advisor._id }, {
       $push: { users: user._id }
     }, { new: true } ).then(dbAdvisor => {
       passport.authenticate('user-local')(req, res, function () {
