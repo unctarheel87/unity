@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Input, Col, Card, Icon } from 'react-materialize';
+import { Input, Col, Card } from 'react-materialize';
+import UserMessage from '../userMessage';
 import API from '../../utils/API';
 import './userMessages.css';
 import openSocket from 'socket.io-client';
@@ -31,12 +32,7 @@ export default class Messages extends Component {
 				<div className="user-messages-display">
 					<h4>Messages</h4>
 					{filteredMessages.slice(0).reverse().map(message => 
-						<Col l={4} m={6} s={12}>
-    					<Card className="#ffffff white message-card" textClassName="black-text" title={message.message}>
-      					<p>{message.author}</p>
-      					<p>{message.created}</p>
-    					</Card>
-						</Col>
+						<UserMessage message={message} getUser={this.props.getUser} />
 					)}
 				</div>
 				<div className="user-message-form">

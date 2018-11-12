@@ -22,8 +22,10 @@
 
 .message-card {
   width: 540px;
+  height: 154px;
   margin: 0 auto;
   margin-bottom: 15px;
+  position: relative;
 }
 
 .user-message-form form {
@@ -43,6 +45,20 @@
   color: black;
 }
 
+.remove-message-btn{
+  background: none;
+  border: none;
+  color: lightgrey;
+  font-size: 20px;
+  font-weight: bold;
+  position: absolute;
+  left: 500px;
+  top: 120px;
+}
+
+.remove-message-btn i:hover {
+  color: red;
+}
 /* responsive styling */
 @media screen and (max-width:600px){
   .user-dashboard{
