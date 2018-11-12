@@ -38,12 +38,12 @@ class UserDashboard extends React.Component {
 
   renderPage() {
     if(this.state.currentTab === 'UserDashHome') {
-      return <UserDashHome user={this.props.user} getUser={this.props.getUser}/>
+      return <UserDashHome user={this.props.user} getUser={this.props.getUser} />
     }
     else if(this.state.currentTab === 'Messages') {
       return (
         <div className="user-messages">
-          <UserMessages user={this.props.user} />
+          <UserMessages user={this.props.user} getUser={this.props.getUser} />
         </div>
       )
     }
