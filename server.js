@@ -69,7 +69,16 @@ const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/unity";
 
 mongoose.connect(MONGODB_URI);
 
-app.listen(PORT, () => {
-  console.log(`🌎 ==> Server now on port ${PORT}!`);
+//socket.io
+const server = require('http').createServer(app);
+const io = require('socket.io')(server);
+
+io.on('connection', socket => { 
+  console.log('user connected...')
+  socket.on('message', msg => {
+    io.emit('message', msg );
+  })
 });
+
+server.listen(PORT, () => console.log("server is running at " + PORT));
 
