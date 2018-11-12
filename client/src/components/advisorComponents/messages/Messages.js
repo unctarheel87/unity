@@ -16,7 +16,7 @@ export default class Messages extends Component {
 	handleSubmit = event => {
 		event.preventDefault();
 		API.createMsg(this.state.message, this.state.user);
-		window.Materialize.toast('Message Sent', 2000);
+		this.props.emit('New Message From ' + this.props.advisor.username);
 		this.setState({
 			message: '',
 			user: ''

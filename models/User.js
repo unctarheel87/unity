@@ -18,6 +18,10 @@ const UserSchema = new Schema({
     type: String,
     default: 'type1'
   },
+  advisor: {
+    type: String,
+    trim: true
+  },
   messages: [{
     type: Schema.Types.ObjectId,
     ref: "Message"
