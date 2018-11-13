@@ -1,38 +1,12 @@
-.user-dash-nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  background-image: linear-gradient(to top left, #20688a, #90d6f7);
+.user-container {
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 90% !important;
 }
-
-.user-dash-nav-name {
-  display: inline-block;
-}
-
-.user-dash-nav p {
-  font-size: 32px;
-  margin: 5px 10px 0 10px;
-  color: white;
-}
-
-.user-dash-nav button span {
-  font-size: 24px;
-  color: white;
-}
-
-.user-dash-nav button i {
-  position: relative;
-  top: 8px;
-  color: white;
-  margin-left: 2px;
-}
-
 .user-dashboard {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   position: relative;
-  background-image: linear-gradient(to top left, #20688a, #90d6f7);
-  padding-right: 80px;
 }
 
 .watchlist-container {
@@ -84,15 +58,48 @@
   text-decoration: underline;
 }
 
-.user-dash-nav button:active {
-  background-image: none !important;
-}
-
-.user-tab-inactive {
+/* added from Alex's advisorDash.css */
+.mainWindow{
   background-image: linear-gradient(to top left, #20688a, #90d6f7);
+  width: 100%;
+  z-index: -1;
+  min-height: 100vh;
+  padding-top: 50px;
+  padding-left: 170px;
 }
 
-.user-tab-active {
-  background-image: #90d6f7;
+.animatedCard{
+  position: relative;
+  -webkit-animation: cardMove 3s; /* Safari 4.0 - 8.0 */
+  animation: cardMove 3s;
+}
+
+@keyframes cardMove {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@media only screen and (min-width: 993px) {
+  .user-container {
+      width: 100%;
+  }
+}
+@media only screen and (min-width: 601px) {
+  .user-container {
+      width: 65%;
+  }
+}
+
+@media screen and (max-width:600px){
+  .advStructure{
+    display: flex;
+    flex-flow: column;
+  }
+.mainWindow{
+  width: 100%;
+  z-index: -1;
+  padding: 0;
+  padding-top: 80px;
+  }
 }
 
