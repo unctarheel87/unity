@@ -26,7 +26,10 @@ export default class UserDashNav extends React.Component {
             <span className="advNavText">Preferences</span>
           </div>
           <div className="advisor-name">
-            <p>Your Advisor:</p>
+            <div className="advisor-icon">
+            <i className="small material-icons advNavIcons">person</i>
+            <span className="advNavText">Advisor :</span>
+            </div>
             <h5>{this.props.user.advisor}</h5>
           </div>
         </div>

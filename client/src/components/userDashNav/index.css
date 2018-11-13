@@ -4,8 +4,17 @@
     animation: mymove 2s;
 }
 .advisor-name {
-    margin-top: 30px;
-    margin-left: 22px;
+    border: none;
+    border-bottom: 2px solid #336780;
+    background-color: #fff;
+    width: 100%;
+    padding: 20px;
+}
+
+.advisor-icon {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
 }
 
 .advisor-name  p {
