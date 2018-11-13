@@ -15,6 +15,7 @@ export default class Messages extends Component {
     });
 	};
 	handleSubmit = event => {
+		console.log(this.props.user);
 		event.preventDefault();
 		API.createMsg(this.state.message, this.props.user._id)
 		.then(response => {
