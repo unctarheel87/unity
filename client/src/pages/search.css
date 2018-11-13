@@ -2,6 +2,9 @@ body {
     background-image: linear-gradient(to top left, #20688a, #90d6f7);
 
 }
+.app {
+    minimum-height: 80vh;
+}
 .searchContainer {
     display: flex;
     flex-direction: row;
@@ -34,6 +37,8 @@ body {
     margin-left: 50px;
     width: 77%;
     margin-top:6px;
+   
+
 }
 
 .stock-search-bar {
@@ -112,12 +117,13 @@ body {
         flex-direction: column;
     }
     .searchResults {
-        width: 90%;
+        width: 100%;
+        margin-left: 0px;
               
     }
     
     .searchSideNav {
-        width: 50%;
+        width: 93%;
         height: 50%;
     }    
 
@@ -150,6 +156,11 @@ body {
         margin:auto;
         font-size: 24px;
       }
+
+      .searchSideNav {
+        width: 99%;
+        height: 80%;
+    }    
 
       .newsFlex {
         width:100%;        
