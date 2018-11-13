@@ -6,7 +6,7 @@ import styled from "styled-components";
 function StockSearchBar(props) {
 
     return  (
-     <Card className='card-box'>  
+     <Card className='card-box z-depth-4'>  
       <div className="card">
         <div className="card-content">
           <div className="stock-search-bar">

@@ -3,7 +3,7 @@ import {Card} from "react-materialize";
 
 export default (props) => {
   return (
-  <Card>  
+  <Card className="z-depth-4">  
     <div className="news">
        <h5 className="newsTitle">Related News</h5>
         <ul>

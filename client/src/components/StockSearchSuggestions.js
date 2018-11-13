@@ -8,7 +8,7 @@ export default (props) => {
     )
   })
   return (
-  <Card>  
+  <Card className="z-depth-4">  
     <div className = "suggested" style={{minHeight: 100}}>
       <h5>Suggested Searches</h5>
       <ul className="two-columns">

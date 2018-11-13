@@ -44,7 +44,7 @@ class Search extends React.Component {
   handleClickEvent = event => {
     if (event) event.preventDefault();
     if(this.state.value === '') {
-      alert("Enter Valid Symbol");
+      window.Materialize.toast("Enter Valid Symbol", 3000);
       return;
     }
     this.setState({ data: "loading" });
@@ -106,7 +106,7 @@ class Search extends React.Component {
                 />
                 <StockSearchNews stockNews={this.state.stockNews} />
               </div>
-              <div className="searchResults">
+              <div className="searchResults z-depth-4">
               {/* <StockSearchHeader logo={this.state.logo} stockInfo={this.state.stockInfo} /> */}
 
                 <StockSearchHeader logo={this.state.logo} stockInfo={this.state.stockInfo} 
