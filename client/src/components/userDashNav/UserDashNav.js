@@ -25,6 +25,10 @@ export default class UserDashNav extends React.Component {
             <i className="small material-icons advNavIcons">settings</i>
             <span className="advNavText">Preferences</span>
           </div>
+          <div className="advisor-name">
+            <p>Your Advisor:</p>
+            <h5>{this.props.user.advisor}</h5>
+          </div>
         </div>
         {/* mobile navbar */}
         <div className="advNav hide-on-med-and-up advMobileFlex">
@@ -40,6 +44,9 @@ export default class UserDashNav extends React.Component {
           </div>
           <div className="advNavItem" onClick={() => this.props.handleTab("preferences")}>
             <i className="small material-icons advNavIcons">settings</i>
+          </div>
+          <div>
+            <p>{this.props.user.advisor}</p>
           </div>
         </div>
       </div>
