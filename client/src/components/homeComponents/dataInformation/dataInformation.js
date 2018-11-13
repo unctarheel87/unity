@@ -27,7 +27,7 @@ export default () => (
         </div>
         <div className="dataInformation">
             <div className="graphDescription">
-                <p className="graphText">Using Unity's search tool will give you current stock pricess and trends, as well as allow you to get the history of that company's stock performance over the last 20 years. Find a stock you want a Watch? We've got you covered. Just save that company to your own watch-list. Utilizing D3 in combination with React-Charts allows us to create visualizations to display information about the stock you choose.</p>
+                <p className="graphText">Use Unity's stock finder.  Our real-time stock tool will give you current stock prices and trends, and allow you to retrieve that company's stock performance for the last 20 years. Found a stock you want to Watch?  We've got you covered.  Just save that company to your own watch-list. Utilizing D3 in combination with React-Charts allows us to create visualizations to display information about the stock you choose.</p>
             </div>
             <img src={Graph} alt="graph" className="graphImage z-depth-3"></img>
         </div>
