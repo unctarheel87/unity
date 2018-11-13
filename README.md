@@ -70,7 +70,17 @@ The project directory structure is set up as follows:
 - `User Dashboard`: While on the user dashboard, the client can search for a stock by typing in a ticker symbol and view the stock charts to follow realtime market trends, related news and other company description.     
 - There is also related Stock suggestions to follow and save searches by adding to personalized watchlist.   
 ![search-page-readme](/client/public/images/search-page-readme.png)          
-- Client side dashboard includes saved Watchlists, view related stockcharts by clicking on the watchlist, messaging feature to interact with the advisors.   
-![user-dash-readme](/client/public/images/user-dash-readme.png)         
-- `Advisor dashboard`:  Includes Client list, tracking their watchlists, interactive messages with the client and saving them by their preferences.          
-![advisor-dash-readme](/client/public/images/advisor-dash-readme.png)                  
+- Client side dashboard includes saved Watchlists, view related stockcharts by clicking on the watchlist, messaging feature to interact with the advisors.     
+![user-dash-readme](/client/public/images/user-dash-readme.png)           
+- `Advisor dashboard`:  Includes Client list, tracking their watchlists, interactive messages with the client and saving them by their preferences.            
+![advisor-dash-readme](/client/public/images/advisor-dash-readme.png)                     
+
+### Authors          
+- [John Tillman](https://github.com/unctarheel87)     
+- [Alex Kozachuk](https://github.com/kozachukalex)      
+- [Brendan Burns](https://github.com/btburns10)      
+- [Rhumel Anderson](https://github.com/rhumel)      
+- [Chandana Katika](https://github.com/chandana-k)       
+
+### License     
+This project is licensed under the UNC Coding Bootcamp 2018.      
