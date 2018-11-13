@@ -3,6 +3,14 @@
     -webkit-animation: mymove 2s; /* Safari 4.0 - 8.0 */
     animation: mymove 2s;
 }
+.advisor-name {
+    margin-top: 30px;
+    margin-left: 22px;
+}
+
+.advisor-name  p {
+    font-weight: bold;
+}
 
 .advNav{
    position: absolute;

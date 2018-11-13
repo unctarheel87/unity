@@ -48,7 +48,7 @@ class UserDashboard extends React.Component {
       <div>
         <div className="advStructure">
           <div className="advNavComp">
-            <UserDashNav handleTab={this.handleTab} />
+            <UserDashNav handleTab={this.handleTab} user={this.props.user} />
           </div>
           <div className="mainWindow">
             <div className="user-container">
