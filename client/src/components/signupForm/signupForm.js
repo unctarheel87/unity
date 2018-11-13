@@ -47,6 +47,7 @@ export default class signupForm extends Component {
         .then(response => {
           console.log(response)
           $(".open").modal('close')
+          window.Materialize.toast('Sign up Successful!', 3000);
         })
         .catch(err => console.log(err))
     } else if (this.state.role === 'advisor') {
@@ -119,7 +120,7 @@ export default class signupForm extends Component {
               onChange={this.handleChange('password')}
             />
             <button type="submit" className="formSubmit waves-effect waves-light btn"> Sign Up </button>
-          </form>
+          </form> 
         </Modal>
       </div>
     )

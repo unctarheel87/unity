@@ -103,3 +103,10 @@
   }
 }
 
+/* responsive styling for UserDashHome*/
+@media screen and (max-width:600px){
+  .watchlist-container {
+    width: 100%;
+  }
+}
+
