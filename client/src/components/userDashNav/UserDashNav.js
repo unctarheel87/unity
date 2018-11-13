@@ -45,9 +45,6 @@ export default class UserDashNav extends React.Component {
           <div className="advNavItem" onClick={() => this.props.handleTab("preferences")}>
             <i className="small material-icons advNavIcons">settings</i>
           </div>
-          <div>
-            <p>{this.props.user.advisor}</p>
-          </div>
         </div>
       </div>
     )
