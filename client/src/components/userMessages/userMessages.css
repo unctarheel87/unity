@@ -1,7 +1,7 @@
 .user-messages-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   min-height: 80vh;
 }
 
@@ -12,12 +12,12 @@
 
 .user-messages-display {
   width: 40%;
-  margin: 0 30px 0 60px;
+  margin-right: 60px;
 }
 
 .user-message-form {
   width: 60%;
-  margin: 0 60px 0 30px;
+  margin-left: 60px;
 }
 
 .message-card {

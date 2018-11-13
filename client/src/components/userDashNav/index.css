@@ -1,0 +1,92 @@
+.animatedNav{
+    position: relative;
+    -webkit-animation: mymove 2s; /* Safari 4.0 - 8.0 */
+    animation: mymove 2s;
+}
+
+.advNav{
+   position: absolute;
+    border: 1px solid #336780; 
+    height: 100%;
+    background-color: #fff;
+    color: #336780;
+    width: 180px;
+    height: 100vh;
+    margin-top: 0px;
+}
+
+.advNavHead{
+    width: 100%;
+    color: #336780;
+    text-align: center;
+    margin-top: 10px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #336780;
+}
+
+.advPic{
+    border-radius: 50%;
+    margin-top: 10%;
+}
+
+.advNavIcons{
+    color: #336780;
+}
+.advNavItem{
+    border: none;
+    border-bottom: 2px solid #336780;
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+}
+.advNavText{
+    margin-left: 5%;
+}
+.advNavItem:hover :first-child{
+    background-color: #336780;
+    color: #fff !important;
+}
+.advNavItem:hover{
+    background-color: #336780;
+    color: #fff !important;
+}
+.advNavText{
+    margin-left: 5%;
+}
+/* Standard syntax */
+@keyframes mymove {
+    from {right: 200px;}
+    to {right: 0px;}
+}
+
+@media screen and (max-width:600px){
+  .advMobileFlex{
+    display: flex;
+    flex-flow: row;
+  }
+  .advNav{
+      width: 60px;
+      background-color: #1b3846;
+      color: #fff;
+      width: 100%;
+      height: 75px;
+  }
+  .advNavItem{
+      border: none;
+      display: flex;
+      background-color: #1b3846;
+      align-items: center;
+      justify-content: space-around;
+      margin: 0 auto;
+  }
+  .advNavIcons{
+  color: #fff;
+  }
+  @keyframes mymove {
+    from {top: -100px;}
+    to {top: 0px;}
+}
+}

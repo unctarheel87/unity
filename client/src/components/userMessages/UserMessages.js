@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Input, Col, Card } from 'react-materialize';
+import { Input } from 'react-materialize';
 import UserMessage from '../userMessage';
 import API from '../../utils/API';
 import './userMessages.css';
@@ -25,7 +25,7 @@ export default class Messages extends Component {
 		.catch(err => console.log(err));
 	}
 	render() {
-		//filter only messages sent by the advisor
+		//filter down to only messages sent by the advisor
 		const filteredMessages = this.props.user.messages.filter(message => message.author !== this.props.user.username);
 		return (
 			<div class="user-messages-container">
