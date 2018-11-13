@@ -15,10 +15,6 @@ body {
     align-content: space-between;
 }
 
-.search-stockbar-button:hover i {
-    color: white
-}
-
 .initialSearch {
     display: flex;
     width:25%;
