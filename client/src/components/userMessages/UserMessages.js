@@ -20,7 +20,7 @@ export default class Messages extends Component {
 		API.createMsg(this.state.message, this.props.user._id)
 		.then(response => {
 			window.Materialize.toast('Message Sent', 2000);
-			emit('New message from your client: ' + this.props.user.username);
+			emit('New message from your client: ' + this.props.user.username, this.props.user.advisor);
 			this.setState({ message: '' });
 		})
 		.catch(err => console.log(err));
@@ -55,7 +55,8 @@ export default class Messages extends Component {
 	}
 }
 
-function emit(msg) {
+function emit(msg, advisor) {
+	const data = {msg, advisor}
 	const socket = openSocket();
-	socket.emit('message2', msg) 
+	socket.emit('message2', data) 
 }

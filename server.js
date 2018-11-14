@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const passport = require("passport");
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8081;
 const LocalStrategy = require("passport-local");
 const mongoose = require("mongoose");
 const userRoutes = require('./routes/userRoutes');
@@ -75,11 +75,11 @@ const io = require('socket.io')(server);
 
 io.on('connection', socket => { 
   console.log('user connected...')
-  socket.on('message', msg => {
-    io.emit('message', msg );
+  socket.on('message', data => {
+    io.emit('message', data );
   })
-  socket.on('message2', msg => {
-    io.emit('message2', msg );
+  socket.on('message2', data => {
+    io.emit('message2', data );
   })
 });
 

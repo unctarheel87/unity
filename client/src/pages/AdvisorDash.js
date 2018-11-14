@@ -17,8 +17,11 @@ export default class Profile extends React.Component {
   componentDidMount() {
     const socket = openSocket();
 
-    socket.on('message2', msg => {
-      window.Materialize.toast(msg, 10000)
+    socket.on('message2', data => {
+      console.log(data)
+      if(data.advisor === this.props.advisor.username) {
+        window.Materialize.toast(data.msg, 10000)
+      }
     })
   }
 
