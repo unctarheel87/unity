@@ -20,8 +20,11 @@ class UserDashboard extends React.Component {
     this.props.getUser()
     const socket = openSocket();
 
-    socket.on('message', msg => {
-      window.Materialize.toast(msg, 10000)
+    socket.on('message', data => {
+      console.log(data)
+      if(data.user === this.props.user._id) {
+        window.Materialize.toast(data.msg, 10000)
+      }
     })
   }
   handleTab = tab => {
