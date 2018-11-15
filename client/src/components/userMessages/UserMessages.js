@@ -1,14 +1,19 @@
 import React, { Component } from "react";
 import { Input } from 'react-materialize';
 import UserMessage from '../userMessage';
+import ToggleSwitch from '../toggleSwitch';
 import API from '../../utils/API';
 import './userMessages.css';
 import openSocket from 'socket.io-client';
 
 export default class Messages extends Component {
-	state= {
-		message: ''
+	state = {
+		message: '',
+		toggle: 'inbox'
 	}
+	handleToggleChange = () => {
+		this.setState({ toggle: this.state.toggle === 'inbox' ? 'sent' : 'inbox' })
+  };
 	handleChange = name => event => {
     this.setState({
       [name]: event.target.value,
@@ -26,12 +31,22 @@ export default class Messages extends Component {
 		.catch(err => console.log(err));
 	}
 	render() {
-		//filter down to only messages sent by the advisor
-		const filteredMessages = this.props.user.messages.filter(message => message.author !== this.props.user.username);
+		let filteredMessages;
+    if(this.state.toggle === 'inbox') {
+      //filter down to only messages sent by the advisor
+      filteredMessages = this.props.user.messages.filter(message => message.author !== this.props.user.username);
+    }
+    else if(this.state.toggle === 'sent') {
+      //filter down to only messages sent by the user
+      filteredMessages = this.props.user.messages.filter(message => message.author === this.props.user.username);
+    }
 		return (
-			<div class="user-messages-container">
+			<div className="user-messages-container">
 				<div className="user-messages-display">
-					<h4>Messages</h4>
+					<div className="user-message-toggle">
+						<h4>Messages</h4>
+						<ToggleSwitch onChange={this.handleToggleChange} />
+					</div>
 					{filteredMessages.slice(0).reverse().map(message => 
 						<UserMessage message={message} getUser={this.props.getUser} />
 					)}
