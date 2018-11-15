@@ -15,6 +15,11 @@
   margin-right: 60px;
 }
 
+.user-message-toggle {
+  display: flex;
+  flex-direction: row;
+}
+
 .user-message-form {
   width: 60%;
   margin-left: 60px;
